@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 
 namespace GettingRealWPF.ViewModels
 {
-    public class CreateBookingViewModel
+    public class BookingViewModel
     {
         private ItemRepository itemRepository = new ItemRepository();
         public ObservableCollection<ItemViewModel> ItemsVM { get; set; }
 
-        public CreateBookingViewModel()
+        public BookingViewModel()
         {
             ItemsVM = new ObservableCollection<ItemViewModel>();
             
             foreach (Item item in ItemsVM)
+            {
+
+            }
         }
     }
 }
