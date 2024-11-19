@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingRealWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" Height="650" Width="800"
+        Background="Gray">
+    
     <Grid>
         <Label Content="Angiv oplysninger" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="45" FontWeight="UltraBold"/>
-        <TextBlock Text="(Denne information er til at holde styr på, hvem der har  booket. Kun du kan se denne information)" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Gray" FontStyle="Italic" Width="400" TextWrapping="Wrap" TextAlignment="Center"/>
+        <TextBlock Text="(Denne information er til at holde styr på, hvem der har  booket. Kun du kan se denne information)" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" FontSize="16" Foreground="AliceBlue" FontStyle="Italic" Width="400" TextWrapping="Wrap" TextAlignment="Center" Opacity="0.5"/>
 
         <Label Content="Navn:" HorizontalAlignment="Right" Margin="0,245,500,0" VerticalAlignment="Top" FontSize="20"/>
         <TextBox x:Name="tbName" HorizontalAlignment="Center" Margin="100,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="20"/>
@@ -17,5 +19,6 @@
         <TextBox x:Name="tbPhone" HorizontalAlignment="Center" Margin="100,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="20"/>
 
         <Button Content="Videre" HorizontalAlignment="Center" Margin="0,480,0,0" VerticalAlignment="Top" Height="80" Width="250" FontSize="25"/>
+        <Button Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" FontSize="20" FontWeight="DemiBold"/>
     </Grid>
 </Window>
