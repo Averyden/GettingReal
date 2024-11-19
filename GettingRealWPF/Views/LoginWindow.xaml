@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="800">
     <Grid>
-        <Label Content="VHO Booking Manager" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="45" FontWeight="UltraBold"/>
-        <Label Content="Angiv oplysninger" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="DemiBold"/>
+        <Label Content="Angiv oplysninger" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="45" FontWeight="UltraBold"/>
+        <TextBlock Text="(Denne information er til at holde styr på, hvem der har  booket. Kun du kan se denne information)" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Gray" FontStyle="Italic" Width="400" TextWrapping="Wrap" TextAlignment="Center"/>
 
         <Label Content="Navn:" HorizontalAlignment="Right" Margin="0,245,500,0" VerticalAlignment="Top" FontSize="20"/>
         <TextBox x:Name="tbName" HorizontalAlignment="Center" Margin="100,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="20"/>
