@@ -17,10 +17,10 @@ namespace GettingRealWPF.ViewModels
         {
             ItemsVM = new ObservableCollection<ItemViewModel>();
             
-            foreach (Item item in ItemsVM)
-            {
+            //foreach (Item item in ItemsVM)
+            //{
 
-            }
+            //}
         }
     }
 }
