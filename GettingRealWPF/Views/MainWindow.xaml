@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="800">
     <Grid>
-        <Label Content="Velkommen {navn}" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="DemiBold"/>
+        <Label Content="VHO Booking Manager" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="45" FontWeight="UltraBold"/>
+       
 
         <Button HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Height="150" Width="250" FontSize="30">
             <TextBlock TextAlignment="Center">Opret <LineBreak/> booking</TextBlock>
