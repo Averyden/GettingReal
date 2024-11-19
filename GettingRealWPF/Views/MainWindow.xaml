@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingRealWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" Height="650" Width="800"
+        Background="#5d6532">
     <Grid>
         <Label Content="VHO Booking Manager" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="45" FontWeight="UltraBold"/>
-       
 
-        <Button HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Height="150" Width="250" FontSize="30">
+
+        <Button Background="#FFB2B2B2"  Foreground="#eee" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Height="150" Width="250" FontSize="30">
             <TextBlock TextAlignment="Center">Opret <LineBreak/> booking</TextBlock>
         </Button>
 
-        <Button HorizontalAlignment="Right" Margin="0,0,100,0" VerticalAlignment="Center" Height="150" Width="250" FontSize="30">
+        <Button Background="#b2b2b2" Foreground="#eee" HorizontalAlignment="Right" Margin="0,0,100,0" VerticalAlignment="Center" Height="150" Width="250" FontSize="30">
             <TextBlock TextAlignment="Center">Se eller <LineBreak/> rediger booking</TextBlock>
         </Button>
     </Grid>
