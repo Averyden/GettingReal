@@ -17,7 +17,8 @@
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <ListBox Grid.Row="0" ItemsSource="">
+            <ListBox Grid.Row="0" >
+                <!--ItemsSource="" add an item source later-->
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
