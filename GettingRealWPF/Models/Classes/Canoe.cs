@@ -9,14 +9,15 @@ namespace GettingRealWPF.Models.Classes
 {
     public class Canoe : Item
     {
-        public Canoe(string name, Status status)
+        public Canoe(int id, string name, Status currentStatus)
         {
+            Id = id;
             Name = name;
-            Status = status;
+            CurrentStatus = currentStatus;
         }
         public override string ToString()
         {
-            return $"{Name}: {Status}";
+            return $"{Name}: {CurrentStatus}";
         }
     }
 }

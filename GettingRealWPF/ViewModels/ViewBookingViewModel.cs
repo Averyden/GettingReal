@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GettingRealWPF.Models.Enumerations
+namespace GettingRealWPF.ViewModels
 {
-    public enum Status 
+    public class ViewBookingViewModel
     {
-       Udlejet,
-       Ledig,
-       Vedligeholdelse
     }
 }

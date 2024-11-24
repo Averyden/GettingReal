@@ -4,14 +4,15 @@ namespace GettingRealWPF.Models.Classes
 {
     public class Shelter : Item
     {
-        public Shelter(string name, Status status)
+        public Shelter(int id, string name, Status currentStatus)
         {
+            Id = id;
             Name = name;
-            Status = status;
+            CurrentStatus = currentStatus;
         }
         public override string ToString()
         {
-            return $"{Name}: {Status}";
+            return $"{Name}: {CurrentStatus}";
         }
     }
 }
