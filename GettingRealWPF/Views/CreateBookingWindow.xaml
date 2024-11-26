@@ -5,13 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingRealWPF.Windows"
         mc:Ignorable="d"
-        Title="CreateBookingWindow" Height="650" Width="800">
+        Title="VHOBook" Height="650" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" MinWidth="200"/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Label Content="Shelter:" FontSize="32" Margin="50,50,50,450" Height="50" Width="120" FontWeight="DemiBold" FontStyle="Italic"/>
+        <CheckBox x:Name="shelterCheckBox" Content="Shelter" FontSize="28"  Height="35" Width="110" Margin="50,150,50,450"/>
+
+        <Label Content="Kano:" FontSize="32" Margin="65,250,65,332" Height="50" Width="100" FontWeight="DemiBold" FontStyle="Italic"/>
+
+        <ComboBox HorizontalAlignment="Center" Margin="0,309,0,0" VerticalAlignment="Top" Width="120"/>
+        <!--Set the ItemSource to a method later that fetches all canoes so that it can be updated dynamically, incase they get more canoes.-->
+
+
+
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*"/>
@@ -23,7 +33,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <ComboBox Text="fdfd" />
-                            
+
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -35,7 +45,9 @@
 
         <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Stretch"/>
         <Grid Grid.Column="2">
+            <!--we implement the calendar widget-->
 
         </Grid>
+        
     </Grid>
 </Window>
