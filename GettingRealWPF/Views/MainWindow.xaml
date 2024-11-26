@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingRealWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800"
+        Title="VHOBook" Height="650" Width="800"
         Background="#5d6532"> <!--this looks like fucking ass but like... the customer is always right... i guess.-->
     <Grid>
         <Label Content="VHO Booking Manager" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="45" FontWeight="UltraBold"/>
