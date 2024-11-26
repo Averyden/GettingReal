@@ -13,16 +13,16 @@ namespace GettingRealWPF.Models.Repositories
             items.Add(item);
         }
 
-        public Status GetStatus(string name)
-        {
-            foreach (Item item in items)
-            {
-                if (item.Name == name)
-                {
-                    return item.Status;
-                }
-            }
-            throw new InvalidOperationException($"Could not find the item: {name}");
-        }
+        //public Status GetStatus(string name)
+        //{
+        //    foreach (Item item in items)
+        //    {
+        //        if (item.Name == name)
+        //        {
+        //            return item.Status;
+        //        }
+        //    }
+        //    throw new InvalidOperationException($"Could not find the item: {name}");
+        //}
     }
 }

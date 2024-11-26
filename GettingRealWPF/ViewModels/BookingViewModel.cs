@@ -11,16 +11,16 @@ namespace GettingRealWPF.ViewModels
     public class BookingViewModel
     {
         private ItemRepository itemRepository = new ItemRepository();
-        public ObservableCollection<ItemViewModel> ItemsVM { get; set; }
+        //public ObservableCollection<ItemViewModel> ItemsVM { get; set; }
 
-        public BookingViewModel()
-        {
-            ItemsVM = new ObservableCollection<ItemViewModel>();
+        //public BookingViewModel()
+        //{
+        //    ItemsVM = new ObservableCollection<ItemViewModel>();
             
-            //foreach (Item item in ItemsVM)
-            //{
+        //    //foreach (Item item in ItemsVM)
+        //    //{
 
-            //}
-        }
+        //    //}
+        //}
     }
 }
