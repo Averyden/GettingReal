@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="VHOBook" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Se/Rediger bookings" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
+        <ScrollViewer Width="350" Height="225" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Button Content="Booking1" Margin="0,25,0,0" Width="125" Height="50" FontSize="18" FontWeight="DemiBold"/>
+                <Button Content="Booking2" Margin="0,25,0,0" Width="125" Height="50" FontSize="18" FontWeight="DemiBold"/>
+                <Button Content="Booking7" Margin="0,25,0,0" Width="125" Height="50" FontSize="18" FontWeight="DemiBold"/>
+                <Button Content="Booking10" Margin="0,25,0,0" Width="125" Height="50" FontSize="18" FontWeight="DemiBold"/>
+            </StackPanel>
+        </ScrollViewer>
+        <!--again we implement the ItemsSource later!!!!!!!@-->
+
+
+        <Button Width="150" Height="50" Content="Ny booking" FontSize="24" Margin="325,374,325,10"/>
+
+
     </Grid>
 </Window>
