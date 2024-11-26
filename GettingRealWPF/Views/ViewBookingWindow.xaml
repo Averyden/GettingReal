@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="VHOBook" Height="450" Width="800">
     <Grid>
-        
+        <Label x:Name="titleLblSeeBook" Content="Informationer for: ${Booking ID}" HorizontalAlignment="Center" Margin="0,50,0,0" FontSize="28" FontWeight="Black" VerticalAlignment="Top"/>
+        <Label x:Name="bookingInformation" Content="Indeholder: ${booking indhold} og er booket til: ${dato}" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="24"/>
+        <Button Content="Rediger" HorizontalAlignment="Center" Margin="0,0,250,50" VerticalAlignment="Bottom" Height="50" Width="150" FontSize="24"/>
+        <Button Content="Slet" HorizontalAlignment="Center" Margin="250,0,0,50" VerticalAlignment="Bottom" Height="50" Width="150" FontSize="24"/>
+
     </Grid>
 </Window>
