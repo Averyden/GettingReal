@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using GettingRealWPF.ViewModels;
+using GettingRealWPF.Models.Enumerations;
 
 namespace GettingRealWPF.Views
 {
@@ -13,6 +14,13 @@ namespace GettingRealWPF.Views
         {
             InitializeComponent();
             DataContext = vm;
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Visibility = Visibility.Hidden;
+            mainWindow.Show();
         }
     }
 }

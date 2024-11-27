@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingRealWPF.Views"
         mc:Ignorable="d"
-        Title="VHOBook" Height="650" Width="800"
+        Title="VHOBook" Height="1080" Width="1920" WindowState="Maximized"
         Background="#5d6532"> <!--this looks like fucking ass but like... the customer is always right... i guess.-->
     <Grid>
-        <Label Content="VHO Booking Manager" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="45" FontWeight="UltraBold"/>
+        <Label Content="VHO Booking Manager" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="100" FontWeight="UltraBold"/>
 
 
-        <Button Background="#FFB2B2B2"  Foreground="#eee" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Height="150" Width="250" FontSize="30">
-            <TextBlock TextAlignment="Center">Opret <LineBreak/> booking</TextBlock>
+        <Button x:Name="btn_CreateBooking" Background="#FFB2B2B2"  Foreground="#eee" HorizontalAlignment="Center" Margin="0,0,0,0" Height="150" Width="500" Click="btn_CreateBooking_Click">
+            <TextBlock Text="Opret booking" MaxWidth="200" TextWrapping="Wrap" FontSize="50" TextAlignment="Center"/>
         </Button>
 
-        <Button Background="#b2b2b2" Foreground="#eee" HorizontalAlignment="Right" Margin="0,0,100,0" VerticalAlignment="Center" Height="150" Width="250" FontSize="30">
-            <TextBlock TextAlignment="Center">Se eller <LineBreak/> rediger booking</TextBlock>
+        <Button x:Name="btn_ViewEditBooking" Background="#FFB2B2B2"  Foreground="#eee" HorizontalAlignment="Center" Margin="0,500,0,0" Height="150" Width="500" Click="btn_ViewEditBooking_Click">
+            <TextBlock Text="Se eller rediger booking" MaxWidth="200" TextWrapping="Wrap" FontSize="50" TextAlignment="Center"/>
         </Button>
     </Grid>
 </Window>
