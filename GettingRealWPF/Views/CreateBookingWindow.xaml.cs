@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using GettingRealWPF.ViewModels;
 
-namespace GettingRealWPF.Windows
+namespace GettingRealWPF.Views
 {
     /// <summary>
     /// Interaction logic for CreateBookingWindow.xaml

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using GettingRealWPF.ViewModels;
 
-namespace GettingRealWPF
+namespace GettingRealWPF.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

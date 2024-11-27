@@ -1,15 +1,15 @@
 ﻿using System.Windows;
 using GettingRealWPF.ViewModels;
 
-namespace GettingRealWPF.windows
+namespace GettingRealWPF.Views
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for AccessWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class AccessWindow : Window
     {
         LoginViewModel vm = new LoginViewModel();
-        public LoginWindow()
+        public AccessWindow()
         {
             InitializeComponent();
             DataContext = vm;

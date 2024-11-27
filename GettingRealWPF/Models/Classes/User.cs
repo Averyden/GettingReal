@@ -7,13 +7,13 @@ namespace GettingRealWPF.Models.Classes
 
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
-        public Permission PermissionLvl { get; set; }
+        public bool IsAdmin { get; set; }
 
-        public User(string name, string phoneNumber, Permission permissionLvl)
+        public User(string name, string phoneNumber, bool isAdmin)
         {
             Name = name;
             PhoneNumber = phoneNumber;
-            PermissionLvl = permissionLvl;
+            IsAdmin = isAdmin;
         }
     }
 }
