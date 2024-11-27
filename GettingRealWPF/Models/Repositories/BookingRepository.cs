@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GettingRealWPF.Models.Classes;
+using System.IO;
 
 namespace GettingRealWPF.Models.Repositories
 {
-    class BookingRepository
+    public class BookingRepository
     {
+        private List<Booking> bookins = new List<Booking>();
+
+        private readonly string filePath = "bookings.txt"; // i have no fucking clue if we should update our DCD to include this, but it is ABSOLUTELY neccesary or else we cant save!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 }
