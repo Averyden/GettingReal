@@ -1,0 +1,25 @@
+﻿<Window x:Class="GettingRealWPF.windows.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GettingRealWPF.windows"
+        mc:Ignorable="d"
+        Title="Window1" Height="650" Width="800">
+    <Grid>
+        <Label Content="Angiv Oplysninger" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" FontSize="42" FontWeight="UltraBold"/>
+        <Button x:Name="btnReturn"  Content="↩" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="32" Width="50" Background="DarkRed"/>
+        <Label Content="(Denne information er til at holde styr på, hvem der har booket.&#10;Kun du kan se denne information)" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" FontSize="10" FontWeight="UltraBold" Foreground="#FF737373" Background="White" />
+        <Label Content="Navn:" HorizontalAlignment="Left" Margin="110,310,0,0" VerticalAlignment="Top" Width="80" Height="45" FontSize="28"/>
+        <Label Content="Telefon:" HorizontalAlignment="Left" Margin="110,430,0,0" VerticalAlignment="Top" Width="80" Height="45" FontSize="18"/>
+        <TextBox x:Name="tbName_Copy" HorizontalAlignment="Center" Margin="0,415,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="394" Height="78"/>
+        <TextBox x:Name="tbName_Copy1" HorizontalAlignment="Center" Margin="0,295,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="394" Height="78"/>
+
+
+
+
+
+
+
+    </Grid>
+</Window>
