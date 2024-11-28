@@ -94,7 +94,11 @@ namespace GettingRealWPF.Models.Repositories
             
         }
 
-        
+        private User parseUser(string data) 
+        {
+            string[] userParts = data.Split(":");
+            return new User(userParts[0], userParts[1], bool.Parse(userParts[2]));
+        }
 
 
     }
