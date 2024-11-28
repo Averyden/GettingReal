@@ -62,7 +62,7 @@ namespace GettingRealWPF.Models.Repositories
                     Item item = parseItem(bData[1]);
                     DateTime startDate = DateTime.ParseExact(bData[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                     DateTime endDate = DateTime.ParseExact(bData[3], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-                    string conUser = bData[4]; // Maybe we should actually split up the name and phone numbers, so that we can check later on.
+                    User conUser = parseUser(bData[4]); // Maybe we should actually split up the name and phone numbers, so that we can check later on.
 
                     Booking loaded = new Booking(int.Parse(bID), item, startDate, endDate, conUser);
 
