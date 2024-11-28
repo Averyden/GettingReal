@@ -33,7 +33,7 @@ namespace GettingRealWPF.Models.Repositories
                 b.ConnectedUser.ToString(),
             ];
 
-            using (StreamWriter sr = new StreamWriter(filePath))
+            using (StreamWriter sr = new StreamWriter(filePath, append: true))
             {
                 sr.WriteLine(SH.PersistanceFormat(bookingInfo));
                 Debug.WriteLine("hg");
