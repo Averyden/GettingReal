@@ -1,6 +1,7 @@
 ﻿using GettingRealWPF.Models.Classes;
 using StringHelperLibrary;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 
 
@@ -41,9 +42,9 @@ namespace GettingRealWPF.Models.Repositories
 
         }
 
-        public List<string> GetAll() // Normally we'd get a list of bookings considering the method name, but we return a list of all booking ids due to our contextual mess.
-        { // On another note, this method only gets called when the ADMIN logs in.
-            List<string> bookings = new List<string>();
+        public List<Booking> GetAll() 
+        {
+            List<Booking> bookings = new List<Booking>();
 
             using (StreamReader SR = new StreamReader(filePath))
             {
@@ -53,17 +54,22 @@ namespace GettingRealWPF.Models.Repositories
                     string[] bData = line.Split(";");
 
                     string bID = bData[0]; // Should give us the booking id?
+                    string item = bData[1];
+                    DateTime startDate = DateTime.ParseExact(bData[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                    DateTime endDate = DateTime.ParseExact(bData[3], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                    string conUser = bData[4]; // Maybe we should actually split up the name and phone numbers, so that we can check later on.
 
-                    bookings.Add($"Booking: {bID}");
+                    Booking loaded = new Booking(int.Parse(bID), item, startDate, endDate, conUser);
+
                 }
             }
             return bookings;
         }
 
-        //public string GetBookingsForUser(User u)
-        //{
-
-        //}
+        public string GetBookingsForUser(User u)
+        {
+            string nameToCheck = u.Name; // we will perform the checks through the userName
+        }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
 
