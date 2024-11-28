@@ -25,6 +25,8 @@ namespace GettingRealWPF.ViewModels
             Booking b = new Booking(4, i, DateTime.Now, DateTime.Now, u);
 
             br.SaveBooking(b);
+
+            Debug.WriteLine(br.GetAll().ToString());
         }
     }
 }
