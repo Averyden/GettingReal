@@ -15,5 +15,10 @@ namespace GettingRealWPF.Models.Classes
             PhoneNumber = phoneNumber;
             IsAdmin = isAdmin;
         }
+
+        public override string ToString()
+        {
+            return $"{Name} ({PhoneNumber})";
+        }
     }
 }
