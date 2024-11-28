@@ -22,8 +22,13 @@ namespace GettingRealWPF.Views
             DataContext = vm;
 
 
-            Debug.WriteLine(AccessViewModel.Name);
-            Debug.WriteLine(AccessViewModel.PhoneNumber);
+        }
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            AccessWindow accessWindow = new AccessWindow(AccessViewModel.Choice);
+            this.Visibility = Visibility.Hidden;
+            accessWindow.Show();
         }
     }
 }
