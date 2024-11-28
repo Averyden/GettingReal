@@ -1,4 +1,6 @@
-﻿using GettingRealWPF.Models.Classes;
+﻿using StringHelperLibrary;
+
+using GettingRealWPF.Models.Classes;
 using System.IO;
 
 namespace GettingRealWPF.Models.Repositories
@@ -17,18 +19,6 @@ namespace GettingRealWPF.Models.Repositories
 
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
-        private void SaveBookingToFile(Booking booking)
-        {
-            string serializedBooking = serializeBooking(booking);
-
-            File.AppendAllText(filePath, serializedBooking + Environment.NewLine);
-        }
-
-        private string serializeBooking(Booking booking)
-        {
-            string userString = $"{booking.ConnectedUser.Name} ({booking.ConnectedUser.PhoneNumber})";
-            string itemsString = ""; // We shall implement the funny little getall method later, its 11PM and im TIRED
-            return $"{booking.Id};{userString};{itemsString};{booking.StartDate:yyyy-MM-dd};{booking.EndDate:yyyy-MM-dd}";
-        }
+       
     }
 }
