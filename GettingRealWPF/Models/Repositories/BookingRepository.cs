@@ -71,9 +71,22 @@ namespace GettingRealWPF.Models.Repositories
             return bookings;
         }
 
-        public string GetBookingsForUser(User u)
+        public string GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
         {
             string nameToCheck = u.Name; // we will perform the checks through the userName
+            List<Booking> bookings = GetAll();
+            string foundBooking = "";
+            foreach (var b in bookings)
+            {
+                if (b.ConnectedUser.Name == nameToCheck)
+                {
+                    foundBooking = $"Booking {b.Id}"; 
+                } else
+                {
+                    foundBooking = "No bookings available for user.";
+                }
+            }
+            return foundBooking;
         }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
