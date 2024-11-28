@@ -60,6 +60,11 @@ namespace GettingRealWPF.Models.Repositories
             return bookings;
         }
 
+        //public string GetBookingsForUser(User u)
+        //{
+
+        //}
+
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
 
     }
