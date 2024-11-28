@@ -45,7 +45,7 @@
         </Grid>
 
         <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Stretch"/>
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="2" Margin="0,0,0,170" Background="#5d6532">
             <!--we implement the calendar widget-->
 
 
