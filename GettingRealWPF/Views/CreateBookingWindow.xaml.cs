@@ -26,5 +26,10 @@ namespace GettingRealWPF.Views
             Debug.WriteLine(AccessViewModel.Name);
             Debug.WriteLine(AccessViewModel.PhoneNumber);
         }
+
+        private void btnNewPerson_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

@@ -41,7 +41,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right">
-                <Button x:Name="btnNewPerson" Content="Opret booking" Height="80" Width="250" FontSize="25" Margin="0,0,10,0"/>
+                <Button x:Name="btnNewPerson" Content="Opret booking" Height="80" Width="250" FontSize="25" Margin="0,0,10,0" Click="btnNewPerson_Click"/>
             </StackPanel>
         </Grid>
 
@@ -59,7 +59,7 @@
                 xmlns:sys="clr-namespace:System;assembly=mscorlib" Width="200" Height="170" >
 
 
-                <Calendar.BlackoutDates>
+                <Calendar.BlackoutDates> <!--Find some way later to check whenever this window runs the dates on each booking, and then add them to this list.-->
                     <CalendarDateRange Start="11/2/2024" End="11/4/2024"/>
                     <CalendarDateRange Start="11/9/2024" End="11/10/2024"/>
                     <CalendarDateRange Start="11/16/2024" End="11/16/2024"/>
