@@ -7,5 +7,12 @@ namespace GettingRealWPF.Models.Classes
         public int Id { get; set; }
         public string Name { get; set; }
         public Status CurrentStatus {  get; set; }
+
+
+        public override string ToString()
+        {
+            return "Hi! im jogn";
+        }
     }
+
 }

@@ -11,6 +11,7 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class CreateBookingWindow : Window
     {
+
         BookingRepository bookingRepo;
         CreateBookingViewModel vm;
         public CreateBookingWindow()
