@@ -1,4 +1,5 @@
 ﻿using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Enumerations;
 using StringHelperLibrary;
 using System.Diagnostics;
 using System.Globalization;
@@ -18,19 +19,23 @@ namespace GettingRealWPF.Models.Repositories
         public void Add(Booking booking)
         {
             bookings.Add(booking);
-            
+
         }
 
         public void SaveBooking(Booking b)
         {
+            // We format the item and user, so we can reconstruct them later on.
+            string formattedItem = $"{b.bookingItem.Id}:{b.bookingItem.Name}:{b.bookingItem.CurrentStatus}";
+            string formattedUser = $"{b.ConnectedUser.Name}:{b.ConnectedUser.PhoneNumber}:{b.ConnectedUser.IsAdmin}";
+
             // use stringhelper to format the saved string.
             List<string> bookingInfo =
             [
                 b.Id.ToString(),
-                b.bookingItem.ToString(),
+                formattedItem,
                 b.StartDate.ToString(),
                 b.EndDate.ToString(),
-                b.ConnectedUser.ToString(),
+                formattedUser
             ];
 
             using (StreamWriter sr = new StreamWriter(filePath, append: true))
@@ -42,7 +47,7 @@ namespace GettingRealWPF.Models.Repositories
 
         }
 
-        public List<Booking> GetAll() 
+        public List<Booking> GetAll()
         {
             List<Booking> bookings = new List<Booking>();
 
@@ -72,6 +77,23 @@ namespace GettingRealWPF.Models.Repositories
         }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
+
+
+        // Helper methods so that we can reconstruct objects for example reconstructing the item class for the connected item to a certain booking.
+        private Item parseItem(string data)
+        {
+            string[] itemParts = data.Split(':');
+            if (itemParts[1] == "Shelter")
+            {
+                return new Shelter(int.Parse(itemParts[0]), itemParts[1], (Status)Enum.Parse(typeof(Status), itemParts[2]));
+            
+            } else
+            {
+                return new Canoe(int.Parse(itemParts[0]), itemParts[1], (Status)Enum.Parse(typeof(Status), itemParts[2]));
+            }
+            
+        }
+
 
     }
 }
