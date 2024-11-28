@@ -8,11 +8,11 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class CreateBookingWindow : Window
     {
-        CreateBookingViewModel vm = new CreateBookingViewModel();
-        public CreateBookingWindow()
-        {
-            InitializeComponent();
-            DataContext = vm;
-        }
+        //CreateBookingViewModel vm = new CreateBookingViewModel();
+        //public CreateBookingWindow()
+        //{
+        //    InitializeComponent();
+        //    DataContext = vm;
+        //}
     }
 }

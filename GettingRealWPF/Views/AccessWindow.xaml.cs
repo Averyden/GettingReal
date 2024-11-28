@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using GettingRealWPF.ViewModels;
 using GettingRealWPF.Models.Enumerations;
+using GettingRealWPF.Models.Repositories;
 
 namespace GettingRealWPF.Views
 {
@@ -31,6 +32,8 @@ namespace GettingRealWPF.Views
         {
             vm.SaveCredentials(tbName.Text, tbPhone.Text);
             this.Visibility = Visibility.Hidden;
+
+       
             if (choice == Choice.createBooking)
             {
                 CreateBookingWindow createBookingWindow = new CreateBookingWindow();
