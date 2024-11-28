@@ -2,6 +2,7 @@
 
 using GettingRealWPF.Models.Classes;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace GettingRealWPF.Models.Repositories
@@ -23,18 +24,22 @@ namespace GettingRealWPF.Models.Repositories
         public void SaveBooking(Booking b)
         {
             // use stringhelper to format the saved string.
-            List<string> bookingInfo = new List<string>();
-
-            bookingInfo.Add(b.Id.ToString());
-            bookingInfo.Add(b.BookingItems.ToString());
-            bookingInfo.Add(b.StartDate.ToString());
-            bookingInfo.Add(b.EndDate.ToString());
-            bookingInfo.Add(b.ConnectedUser.ToString());
+            List<string> bookingInfo =
+            [
+                b.Id.ToString(),
+                b.bookingItem.ToString(),
+                b.StartDate.ToString(),
+                b.EndDate.ToString(),
+                b.ConnectedUser.ToString(),
+            ];
 
             using (StreamWriter sr = new StreamWriter(filePath))
             {
                 sr.WriteLine(SH.PersistanceFormat(bookingInfo));
+                Debug.WriteLine("hg");
             }
+
+
         }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
