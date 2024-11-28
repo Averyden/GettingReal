@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingRealWPF.Views"
         mc:Ignorable="d"
-        Title="VHOBook" Height="650" Width="800">
+        Title="VHOBook" Height="1080" Width="1920" WindowState="Maximized"
+        Background="#5d6532">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" MinWidth="200"/>

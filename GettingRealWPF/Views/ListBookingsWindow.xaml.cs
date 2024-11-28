@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using System.Windows;
 using GettingRealWPF.ViewModels;
 
 namespace GettingRealWPF.Views
@@ -13,6 +15,9 @@ namespace GettingRealWPF.Views
         {
             InitializeComponent();
             DataContext = vm;
+
+            Debug.WriteLine(AccessViewModel.Name);
+            Debug.WriteLine(AccessViewModel.PhoneNumber);
         }
 
         private void StackPanel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)

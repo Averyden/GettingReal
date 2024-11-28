@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingRealWPF.Views"
         mc:Ignorable="d"
-        Title="VHOBook" Height="650" Width="800">
+        Title="VHOBook" Height="1080" Width="1920" WindowState="Maximized"
+        Background="#5d6532">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" MinWidth="200"/>
@@ -17,12 +19,12 @@
 
         <Label Content="Kano:" FontSize="32" Margin="65,250,65,332" Height="50" Width="100" FontWeight="DemiBold" FontStyle="Italic"/>
 
-        <ComboBox HorizontalAlignment="Center" Margin="0,309,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"/>
         <!--Set the ItemSource to a method later that fetches all canoes so that it can be updated dynamically, incase they get more canoes.-->
 
 
 
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="2" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="2*"/>
@@ -43,42 +45,42 @@
             </StackPanel>
         </Grid>
 
-        <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Stretch"/>
-        <Grid Grid.Column="2">
+        <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Stretch" />
+        <Grid Grid.Column="2" Margin="0,0,0,176" Background="#5d6532">
             <!--we implement the calendar widget-->
-           
 
 
 
-                <Calendar Margin="48,126,297,338" SelectionMode="MultipleRange"  
+
+            <Calendar Margin="48,126,297,338" SelectionMode="MultipleRange"  
                 IsTodayHighlighted="True" 
                 DisplayDate="11/1/2024"
                 DisplayDateEnd="11/30/2024"
-                xmlns:sys="clr-namespace:System;assembly=mscorlib" Width="200" Height="170">
+                xmlns:sys="clr-namespace:System;assembly=mscorlib" Width="200" Height="170" >
 
 
-                    <Calendar.BlackoutDates>
-                        <CalendarDateRange Start="11/2/2024" End="11/4/2024"/>
-                        <CalendarDateRange Start="11/9/2024" End="11/10/2024"/>
-                        <CalendarDateRange Start="11/16/2024" End="11/16/2024"/>
-                        <CalendarDateRange Start="11/23/2024" End="11/25/2024"/>
-                        <CalendarDateRange Start="11/30/2024" End="11/30/2024"/>
-                    </Calendar.BlackoutDates>
+                <Calendar.BlackoutDates>
+                    <CalendarDateRange Start="11/2/2024" End="11/4/2024"/>
+                    <CalendarDateRange Start="11/9/2024" End="11/10/2024"/>
+                    <CalendarDateRange Start="11/16/2024" End="11/16/2024"/>
+                    <CalendarDateRange Start="11/23/2024" End="11/25/2024"/>
+                    <CalendarDateRange Start="11/30/2024" End="11/30/2024"/>
+                </Calendar.BlackoutDates>
 
-                    <Calendar.SelectedDates>
-                        <sys:DateTime>11/28/2024</sys:DateTime>
-                        <sys:DateTime>11/29/2024</sys:DateTime>
+                <Calendar.SelectedDates>
+                    <sys:DateTime>11/28/2024</sys:DateTime>
+                    <sys:DateTime>11/29/2024</sys:DateTime>
 
-                    </Calendar.SelectedDates>
+                </Calendar.SelectedDates>
 
                 <Calendar.RenderTransform>
                     <ScaleTransform ScaleX="2.25" ScaleY="2.25"/>
                 </Calendar.RenderTransform>
             </Calendar>
 
-          
+
 
         </Grid>
-        
+
     </Grid>
 </Window>

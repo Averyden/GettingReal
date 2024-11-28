@@ -1,5 +1,8 @@
 ﻿using System.Windows;
 using GettingRealWPF.ViewModels;
+using GettingRealWPF.Models;
+using GettingRealWPF.Models.Repositories;
+using System.Diagnostics;
 
 namespace GettingRealWPF.Views
 {
@@ -8,11 +11,19 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class CreateBookingWindow : Window
     {
-        CreateBookingViewModel vm = new CreateBookingViewModel();
+        BookingRepository bookingRepo;
+        CreateBookingViewModel vm;
         public CreateBookingWindow()
         {
             InitializeComponent();
+
+            bookingRepo = new BookingRepository();
+            vm = new CreateBookingViewModel(bookingRepo);
             DataContext = vm;
+
+
+            Debug.WriteLine(AccessViewModel.Name);
+            Debug.WriteLine(AccessViewModel.PhoneNumber);
         }
     }
 }
