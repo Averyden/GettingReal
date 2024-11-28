@@ -1,8 +1,7 @@
-﻿using StringHelperLibrary;
-
-using GettingRealWPF.Models.Classes;
-using System.IO;
+﻿using GettingRealWPF.Models.Classes;
+using StringHelperLibrary;
 using System.Diagnostics;
+using System.IO;
 
 
 namespace GettingRealWPF.Models.Repositories
@@ -42,7 +41,26 @@ namespace GettingRealWPF.Models.Repositories
 
         }
 
+        public List<string> GetAll() // Normally we'd get a list of bookings considering the method name, but we return a list of all booking ids due to our contextual mess.
+        { // On another note, this method only gets called when the ADMIN logs in.
+            List<string> bookings = new List<string>();
+
+            using (StreamReader SR = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = SR.ReadLine()) != null)
+                {
+                    string[] bData = line.Split(";");
+
+                    string bID = bData[0]; // Should give us the booking id?
+
+                    bookings.Add($"Booking: {bID}");
+                }
+            }
+            return bookings;
+        }
+
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
-       
+
     }
 }
