@@ -1,4 +1,4 @@
-﻿using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Classes;
 using GettingRealWPF.Models.Repositories;
 using System.Diagnostics;
 

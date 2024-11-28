@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using GettingRealWPF.ViewModels;
 using GettingRealWPF.Models.Enumerations;
 using GettingRealWPF.Models.Repositories;
