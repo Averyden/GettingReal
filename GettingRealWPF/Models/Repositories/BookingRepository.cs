@@ -59,7 +59,7 @@ namespace GettingRealWPF.Models.Repositories
                     string[] bData = line.Split(";");
 
                     string bID = bData[0]; // Should give us the booking id?
-                    string item = bData[1];
+                    Item item = parseItem(bData[1]);
                     DateTime startDate = DateTime.ParseExact(bData[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                     DateTime endDate = DateTime.ParseExact(bData[3], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                     string conUser = bData[4]; // Maybe we should actually split up the name and phone numbers, so that we can check later on.
@@ -93,6 +93,8 @@ namespace GettingRealWPF.Models.Repositories
             }
             
         }
+
+        
 
 
     }
