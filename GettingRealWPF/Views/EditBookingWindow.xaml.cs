@@ -15,8 +15,6 @@ namespace GettingRealWPF.Views
             DataContext = vm;
         }
 
-        private void btn_Back_Click(object sender, RoutedEventArgs e)
-        {
-        }
+        
     }
 }
