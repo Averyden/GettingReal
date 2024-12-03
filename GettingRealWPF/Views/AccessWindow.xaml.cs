@@ -30,7 +30,7 @@ namespace GettingRealWPF.Views
 
         private void btn_Continue_Click(object sender, RoutedEventArgs e)
         {
-            vm.SaveCredentials(tbName.Text, tbPhone.Text);
+            vm.SaveCredentials(tbName.Text, tbPhone.Text, choice);
             vm.testMethodForSavingABooking();
 
             this.Visibility = Visibility.Hidden;
