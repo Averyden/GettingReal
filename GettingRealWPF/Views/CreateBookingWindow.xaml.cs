@@ -11,6 +11,7 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class CreateBookingWindow : Window
     {
+
         BookingRepository bookingRepo;
         CreateBookingViewModel vm;
         public CreateBookingWindow()
@@ -24,6 +25,11 @@ namespace GettingRealWPF.Views
 
             Debug.WriteLine(AccessViewModel.Name);
             Debug.WriteLine(AccessViewModel.PhoneNumber);
+        }
+
+        private void btnNewPerson_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }
