@@ -12,11 +12,11 @@
 
 
         <Button x:Name="btn_CreateBooking" Background="#FFB2B2B2"  Foreground="#eee" HorizontalAlignment="Center" Margin="0,0,0,0" Height="150" Width="500" Click="btn_CreateBooking_Click">
-            <TextBlock Text="Opret booking" MaxWidth="200" TextWrapping="Wrap" FontSize="50" TextAlignment="Center"/>
+            <TextBlock Text="Opret booking" MaxWidth="200" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" Foreground="Black" FontWeight="DemiBold"/>
         </Button>
 
         <Button x:Name="btn_ViewEditBooking" Background="#FFB2B2B2"  Foreground="#eee" HorizontalAlignment="Center" Margin="0,500,0,0" Height="150" Width="500" Click="btn_ViewEditBooking_Click">
-            <TextBlock Text="Se eller rediger booking" MaxWidth="200" TextWrapping="Wrap" FontSize="50" TextAlignment="Center"/>
+            <TextBlock Text="Se eller rediger booking" MaxWidth="200" TextWrapping="Wrap" FontSize="50" TextAlignment="Center" Foreground="Black" FontWeight="DemiBold"/>
         </Button>
     </Grid>
 </Window>
