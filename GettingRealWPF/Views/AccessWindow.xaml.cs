@@ -32,9 +32,8 @@ namespace GettingRealWPF.Views
         {
             vm.SaveCredentials(tbName.Text, tbPhone.Text);
             vm.testMethodForSavingABooking();
-            this.Visibility = Visibility.Hidden;
 
-            
+            this.Visibility = Visibility.Hidden;
        
             if (choice == Choice.createBooking)
             {

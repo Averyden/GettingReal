@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using GettingRealWPF.ViewModels;
 using GettingRealWPF.Models;
 using GettingRealWPF.Models.Repositories;
@@ -23,9 +23,14 @@ namespace GettingRealWPF.Views
             DataContext = vm;
 
 
-            Debug.WriteLine(AccessViewModel.Name);
-            Debug.WriteLine(AccessViewModel.PhoneNumber);
         }
+
+        /*private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            AccessWindow accessWindow = new AccessWindow(AccessViewModel.Choice);
+            this.Visibility = Visibility.Hidden;
+            accessWindow.Show();
+        }*/
 
         private void btnNewPerson_Click(object sender, RoutedEventArgs e)
         {

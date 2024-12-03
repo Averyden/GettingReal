@@ -14,5 +14,7 @@ namespace GettingRealWPF.Views
             InitializeComponent();
             DataContext = vm;
         }
+
+        
     }
 }
