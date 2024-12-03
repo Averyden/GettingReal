@@ -6,22 +6,25 @@
         xmlns:local="clr-namespace:GettingRealWPF.Views"
         mc:Ignorable="d"
         Title="VHOBook" Height="1080" Width="1920" WindowState="Maximized"
-        Background="#5d6532">
+        Background="#5d6532"> 
     <Grid>
-        <Label Content="Se/Rediger bookings" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
-        <ScrollViewer Width="350" Height="225" VerticalScrollBarVisibility="Auto">
+        <Label Content="Se/Rediger bookings" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="40" FontWeight="Bold"/>
+        <ScrollViewer Width="550" Height="320" VerticalScrollBarVisibility="Auto" Background="#FFEDE9E9">
             <StackPanel HorizontalAlignment="Center">
-                <Button Content="Booking1" Margin="0,25,0,0" Width="125" Height="50" FontSize="18" FontWeight="DemiBold"/>
-                <Button Content="Booking2" Margin="0,25,0,0" Width="125" Height="50" FontSize="18" FontWeight="DemiBold"/>
-                <Button Content="Booking7" Margin="0,25,0,0" Width="125" Height="50" FontSize="18" FontWeight="DemiBold"/>
-                <Button Content="Booking10" Margin="0,25,0,0" Width="125" Height="50" FontSize="18" FontWeight="DemiBold"/>
+                <Button Content="Booking1" Margin="0,25,0,0" Width="125" Height="50" FontSize="25" FontWeight="DemiBold" Background="#FFB2B2B2"/>
+                <Button Content="Booking2" Margin="0,25,0,0" Width="125" Height="50" FontSize="25" FontWeight="DemiBold" Background="#FFB2B2B2"/>
+                <Button Content="Booking7" Margin="0,25,0,0" Width="125" Height="50" FontSize="25" FontWeight="DemiBold" Background="#FFB2B2B2"/>
+                <Button Content="Booking10" Margin="0,25,0,0" Width="125" Height="50" FontSize="25" FontWeight="DemiBold" Background="#FFB2B2B2"/>
             </StackPanel>
         </ScrollViewer>
         <!--again we implement the ItemsSource later!!!!!!!@-->
 
+        <Grid Grid.Row="0">
+            <Button x:Name="btn_Back" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFB2B2B2" Height="80" Width="250" FontSize="35" FontWeight="DemiBold"/>
+            <Button x:Name="btn_Oplysninger" Content="Praktiske Oplysninger" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" Height="50" Width="400" FontSize="35" FontWeight="DemiBold" Margin="0,180,80,0"/>
+            <Button x:Name="btn_Vejvisning" Content="Vejvisnings Guide" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" Height="50" Width="400" FontSize="35" FontWeight="DemiBold" Margin="0,250,80,0" />
+        </Grid>
 
-        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150" Height="50" Content="Ny booking" FontSize="24" Margin="0,0,0,10"/>
-
-
+        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="225" Height="75" Content="Ny booking" FontSize="35" FontWeight="DemiBold" Margin="0,0,0,10" Background="#FFB2B2B2"/>
     </Grid>
 </Window>
