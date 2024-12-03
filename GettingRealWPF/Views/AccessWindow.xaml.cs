@@ -1,6 +1,7 @@
-﻿using System.Windows;
+using System.Windows;
 using GettingRealWPF.ViewModels;
 using GettingRealWPF.Models.Enumerations;
+using GettingRealWPF.Models.Repositories;
 
 namespace GettingRealWPF.Views
 {
@@ -29,8 +30,11 @@ namespace GettingRealWPF.Views
 
         private void btn_Continue_Click(object sender, RoutedEventArgs e)
         {
-            vm.SaveCredentials(tbName.Text, tbPhone.Text, choice);
+            vm.SaveCredentials(tbName.Text, tbPhone.Text);
+            vm.testMethodForSavingABooking();
+
             this.Visibility = Visibility.Hidden;
+       
             if (choice == Choice.createBooking)
             {
                 CreateBookingWindow createBookingWindow = new CreateBookingWindow();

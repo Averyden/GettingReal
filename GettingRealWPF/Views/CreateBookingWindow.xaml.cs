@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using GettingRealWPF.ViewModels;
 using GettingRealWPF.Models;
 using GettingRealWPF.Models.Repositories;
@@ -11,6 +11,7 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class CreateBookingWindow : Window
     {
+
         BookingRepository bookingRepo;
         CreateBookingViewModel vm;
         public CreateBookingWindow()
@@ -31,6 +32,9 @@ namespace GettingRealWPF.Views
             accessWindow.Show();
         }*/
 
-        
+        private void btnNewPerson_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }
