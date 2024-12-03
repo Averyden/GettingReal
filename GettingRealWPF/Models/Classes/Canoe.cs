@@ -9,6 +9,7 @@ namespace GettingRealWPF.Models.Classes
 {
     public class Canoe : Item
     {
+        public string Name { get; set; }
         public Canoe(int id, string name, Status currentStatus)
         {
             Id = id;
