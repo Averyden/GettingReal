@@ -14,9 +14,9 @@ namespace GettingRealWPF.ViewModels
 
         public void CreateBooking(int id, Item bookingItems, DateTime startDate, DateTime endDate, User connectedUser)
         {
-            Booking newBooking = new Booking(id, bookingItems, startDate, endDate, connectedUser);
-            bookingRepo.Add(newBooking);
-            bookingRepo.SaveBooking(newBooking); 
+            //Booking newBooking = new Booking(id, bookingItems, startDate, endDate, connectedUser);
+            //bookingRepo.Add(newBooking);
+            //bookingRepo.Save(newBooking); 
         }
     }
 }

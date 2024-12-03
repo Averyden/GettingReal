@@ -28,13 +28,17 @@ namespace GettingRealWPF.ViewModels
 
         public void testMethodForSavingABooking()
         {
-            Shelter i = new Shelter(27, "Shelter", Models.Enumerations.Status.Udlejet);
+            List<Item> items = new List<Item>();
+            items.Add(new Shelter(0, "Smukke Shelter", Status.Udlejet));
+            items.Add(new Canoe(0, "Lange Kano", Status.Udlejet));
+
+            //Shelter i = new Shelter(27, "Shelter", Models.Enumerations.Status.Udlejet);
             User u = new User(Name, PhoneNumber, false);
-            Booking b = new Booking(4, i, DateTime.Now, DateTime.Now, u);
+            Booking b = new Booking(4, items, DateTime.Today, DateTime.Today, u);
 
-            br.SaveBooking(b);
+            br.Save(b);
 
-            Debug.WriteLine(br.GetAll().ToString());
+            //Debug.WriteLine(br.GetAll().ToString());
         }
     }
 }
