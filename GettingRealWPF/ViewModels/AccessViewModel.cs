@@ -14,9 +14,7 @@ namespace GettingRealWPF.ViewModels
     {
         BookingRepository br = new BookingRepository();
         ItemRepository ir = new ItemRepository();
-        public static string Name { get; set; }
-        public static string PhoneNumber { get; set; }
-        public static Choice Choice { get; set; }
+        public Choice Choice { get; set; }
 
         public User FetchCredentials(string name, string phoneNumber, Choice choice)
         {
@@ -38,10 +36,10 @@ namespace GettingRealWPF.ViewModels
 
 
             //Shelter i = new Shelter(27, "Shelter", Models.Enumerations.Status.Unavailable);
-            User u = new User(Name, PhoneNumber, false);
-            Booking b = new Booking(0, items, DateTime.Today, DateTime.Today, u);
+            //User u = new User(Name, PhoneNumber, false);
+            //Booking b = new Booking(0, items, DateTime.Today, DateTime.Today, u);
 
-            br.Save(b);
+            //br.Save(b);
 
             //Debug.WriteLine(br.GetAll().ToString());
         }

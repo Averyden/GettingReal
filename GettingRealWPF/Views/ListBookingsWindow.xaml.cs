@@ -21,8 +21,8 @@ namespace GettingRealWPF.Views
 
             this.activeUser = activeUser;
 
-            Debug.WriteLine(AccessViewModel.Name);
-            Debug.WriteLine(AccessViewModel.PhoneNumber);
+            //Debug.WriteLine(AccessViewModel.Name);
+            //Debug.WriteLine(AccessViewModel.PhoneNumber);
         }
 
         private void StackPanel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)

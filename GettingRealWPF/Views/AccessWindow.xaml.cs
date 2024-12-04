@@ -39,7 +39,7 @@ namespace GettingRealWPF.Views
        
             if (choice == Choice.createBooking)
             {
-                CreateBookingWindow createBookingWindow = new CreateBookingWindow(activeUser);
+                CreateBookingWindow createBookingWindow = new CreateBookingWindow(activeUser, choice);
                 createBookingWindow.Show();
             }
             else if (choice == Choice.listBookings)
