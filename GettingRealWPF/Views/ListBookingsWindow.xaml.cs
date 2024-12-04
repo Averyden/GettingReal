@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Windows;
+using GettingRealWPF.Models.Classes;
 using GettingRealWPF.ViewModels;
 
 namespace GettingRealWPF.Views
@@ -11,10 +12,14 @@ namespace GettingRealWPF.Views
     public partial class ListBookingsWindow : Window
     {
         ListBookingsViewModel vm = new ListBookingsViewModel();
-        public ListBookingsWindow()
+
+        private User activeUser;
+        public ListBookingsWindow(User activeUser)
         {
             InitializeComponent();
             DataContext = vm;
+
+            this.activeUser = activeUser;
 
             Debug.WriteLine(AccessViewModel.Name);
             Debug.WriteLine(AccessViewModel.PhoneNumber);

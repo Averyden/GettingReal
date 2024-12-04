@@ -3,6 +3,7 @@ using GettingRealWPF.ViewModels;
 using GettingRealWPF.Models;
 using GettingRealWPF.Models.Repositories;
 using System.Diagnostics;
+using GettingRealWPF.Models.Classes;
 
 namespace GettingRealWPF.Views
 {
@@ -14,7 +15,9 @@ namespace GettingRealWPF.Views
 
         BookingRepository bookingRepo;
         CreateBookingViewModel vm;
-        public CreateBookingWindow()
+
+        private User activeUser;
+        public CreateBookingWindow(User activeUser)
         {
             InitializeComponent();
 
@@ -22,6 +25,7 @@ namespace GettingRealWPF.Views
             vm = new CreateBookingViewModel(bookingRepo);
             DataContext = vm;
 
+            this.activeUser = activeUser;
 
         }
 

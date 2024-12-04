@@ -23,7 +23,14 @@ namespace GettingRealWPF.Models.Classes
 
         public override string ToString()
         {
-            return $"{Name} ({PhoneNumber})";
+            if (IsAdmin)
+            {
+                return $"{Name} ({PhoneNumber}), [ADMINISTRATOR]";
+            }
+            else
+            {
+                return $"{Name} ({PhoneNumber})";
+            }
         }
     }
 }

@@ -32,19 +32,19 @@ namespace GettingRealWPF.Views
 
         private void btn_Continue_Click(object sender, RoutedEventArgs e)
         {
-            User fetchedUser = vm.FetchCredentials(tbName.Text, tbPhone.Text, choice);
-            Debug.WriteLine(fetchedUser.ToString());
+            User activeUser = vm.FetchCredentials(tbName.Text, tbPhone.Text, choice);
+            Debug.WriteLine(activeUser.ToString());
 
             this.Visibility = Visibility.Hidden;
        
             if (choice == Choice.createBooking)
             {
-                CreateBookingWindow createBookingWindow = new CreateBookingWindow(fetchedUser);
+                CreateBookingWindow createBookingWindow = new CreateBookingWindow(activeUser);
                 createBookingWindow.Show();
             }
             else if (choice == Choice.listBookings)
             {
-                ListBookingsWindow listBookingsWindow = new ListBookingsWindow(fetchedUser);
+                ListBookingsWindow listBookingsWindow = new ListBookingsWindow(activeUser);
                 listBookingsWindow.Show();
             }
         }
