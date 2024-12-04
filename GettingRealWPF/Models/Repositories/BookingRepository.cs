@@ -27,7 +27,7 @@ namespace GettingRealWPF.Models.Repositories
             // We format the item and user, so we can reconstruct them later on.
 
             string items = string.Join(';', booking.BookingItems.ConvertAll(item =>
-                $"{item.Id},{item.Name},{item.CurrentStatus}"
+                $"{item.Id},{item.Name},{item.Type},{item.CurrentStatus}"
             ));
 
             string formattedUser = $"{booking.ConnectedUser.Name},{booking.ConnectedUser.PhoneNumber},{booking.ConnectedUser.IsAdmin}";

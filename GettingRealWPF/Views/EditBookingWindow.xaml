@@ -39,7 +39,7 @@
 
             <Grid Grid.Row="2">
                 <StackPanel Orientation="Vertical" Margin="50">
-                    <Label Content="Kano" HorizontalAlignment="Center" FontSize="100" FontWeight="DemiBold"/>
+                    <Label Content="Canoe" HorizontalAlignment="Center" FontSize="100" FontWeight="DemiBold"/>
                     <ComboBox Height="50"/>
                 </StackPanel>
             </Grid>
