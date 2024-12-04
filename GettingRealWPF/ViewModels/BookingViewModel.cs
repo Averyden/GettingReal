@@ -1,4 +1,5 @@
-﻿using GettingRealWPF.Models.Repositories;
+﻿using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,17 +11,14 @@ namespace GettingRealWPF.ViewModels
 {
     public class BookingViewModel
     {
-        private ItemRepository itemRepository = new ItemRepository();
-        //public ObservableCollection<ItemViewModel> ItemsVM { get; set; }
+        private Booking booking;
+        public List<ItemRepository> BookingItems { get; set; } = new List<ItemRepository>();
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
 
-        //public BookingViewModel()
-        //{
-        //    ItemsVM = new ObservableCollection<ItemViewModel>();
+        public BookingViewModel()
+        {
             
-        //    //foreach (Item item in ItemsVM)
-        //    //{
-
-        //    //}
-        //}
+        }
     }
 }

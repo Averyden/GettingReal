@@ -13,6 +13,7 @@ namespace GettingRealWPF.ViewModels
     public class AccessViewModel
     {
         BookingRepository br = new BookingRepository();
+        ItemRepository ir = new ItemRepository();
 
 
         public static string Name { get; set; }
@@ -28,13 +29,14 @@ namespace GettingRealWPF.ViewModels
 
         public void testMethodForSavingABooking()
         {
-            List<Item> items = new List<Item>();
-            items.Add(new Shelter(0, "Smukke Shelter", Status.Udlejet));
-            items.Add(new Canoe(0, "Lange Kano", Status.Udlejet));
+            List<Item> items = ir.GetAll();
+            //items.Add(new Item(0, "Smukke Shelter", ItemType.Shelter, Status.Available));
+            //items.Add(new Item(1, "Lange Kano", ItemType.Canoe, Status.Available));
 
-            //Shelter i = new Shelter(27, "Shelter", Models.Enumerations.Status.Udlejet);
+
+            //Shelter i = new Shelter(27, "Shelter", Models.Enumerations.Status.Unavailable);
             User u = new User(Name, PhoneNumber, false);
-            Booking b = new Booking(4, items, DateTime.Today, DateTime.Today, u);
+            Booking b = new Booking(0, items, DateTime.Today, DateTime.Today, u);
 
             br.Save(b);
 

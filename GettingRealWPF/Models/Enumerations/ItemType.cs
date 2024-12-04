@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace GettingRealWPF.Models.Enumerations
 {
-    public enum Status 
+    public enum ItemType
     {
-       Available,
-       Unavailable,
-       Maintenance
+        Shelter,
+        Canoe
     }
 }
