@@ -35,10 +35,5 @@ namespace GettingRealWPF.Views
             this.Visibility = Visibility.Hidden;
             accessWindow.Show();
         }
-
-        private void btnCreateBooking_Click(object sender, RoutedEventArgs e)
-        {
-            vm.CreateBooking();
-        }
     }
 }

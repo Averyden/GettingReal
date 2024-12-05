@@ -1,19 +1,16 @@
 ﻿using GettingRealWPF.Models.Classes;
 using GettingRealWPF.Models.Repositories;
-using System.Xml.Linq;
 
 namespace GettingRealWPF.ViewModels
 {
     public class CreateBookingViewModel
     {
-        private ItemRepository itemRepo;
-        private BookingRepository bookingRepo;
+        private ItemRepository itemRepo = new ItemRepository();
+        private BookingRepository bookingRepo = new BookingRepository();
         private User activeUser;
 
         public CreateBookingViewModel(User activeUser)
         {
-            itemRepo = new ItemRepository();
-            bookingRepo = new BookingRepository();
             this.activeUser = activeUser;
         }
 
@@ -22,9 +19,15 @@ namespace GettingRealWPF.ViewModels
             // For test purposes
             List<Item> items = itemRepo.GetAll();
 
-            Booking b = new Booking(0, items, DateTime.Today, DateTime.Today, activeUser);
+            Booking booking = new Booking(
+                id: 0, 
+                bookingItems: items, 
+                startDate: DateTime.Today, 
+                endDate: DateTime.Today, 
+                connectedUser: activeUser
+            );
 
-            bookingRepo.Save(b);
+            bookingRepo.Save(booking);
         }
     }
 }
