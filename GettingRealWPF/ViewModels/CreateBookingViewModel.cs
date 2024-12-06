@@ -1,5 +1,7 @@
 ﻿using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Commands;
 using GettingRealWPF.Models.Repositories;
+using System.Windows.Input;
 
 namespace GettingRealWPF.ViewModels
 {
@@ -8,6 +10,8 @@ namespace GettingRealWPF.ViewModels
         private ItemRepository itemRepo = new ItemRepository();
         private BookingRepository bookingRepo = new BookingRepository();
         private User activeUser;
+
+        public ICommand CreateBookingCmd { get; } = new CreateBookingCmd();
 
         public CreateBookingViewModel(User activeUser)
         {

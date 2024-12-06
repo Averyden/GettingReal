@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace GettingRealWPF
+namespace GettingRealWPF.Models.Commands
 {
     public class CreateBookingCmd : ICommand
     {
