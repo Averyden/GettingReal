@@ -21,11 +21,11 @@ namespace GettingRealWPF.ViewModels
         public void CreateBooking()//int id, Item bookingItems, DateTime startDate, DateTime endDate, User connectedUser)
         {
             // For test purposes
-            List<Item> items = itemRepo.GetAll();
+            //List<Item> items = itemRepo.GetAll();
 
             Booking booking = new Booking(
                 id: 0, 
-                bookingItems: items, 
+                bookingItems: null, 
                 startDate: DateTime.Today, 
                 endDate: DateTime.Today, 
                 connectedUser: activeUser
