@@ -23,6 +23,8 @@ namespace GettingRealWPF.Views
             DataContext = vm;
 
             this.choice = choice;
+
+            Debug.WriteLine($"\n\n\n\n\nso gthe chouice is chosen: {choice.ToString()}");
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
@@ -48,17 +50,19 @@ namespace GettingRealWPF.Views
             {
                 ListBookingsWindow listBookingsWindow = new ListBookingsWindow(activeUser);
                 string bookingsFound = bookingRepository.GetBookingsForUser(activeUser);
-                if (bookingsFound == "No bookings available for user.")
+                if (bookingsFound.ToString() == "No bookings available for user.")
                 {
-                    listBookingsWindow.Show();
+                    
                     listBookingsWindow.infoLabel.Opacity = 1;
                     listBookingsWindow.infoLabel.Content = "No bookings available for user.";
                     listBookingsWindow.Viewer.Opacity = 0;
-                } else { 
                     listBookingsWindow.Show();
+                } else { 
+                    
                     listBookingsWindow.infoLabel.Opacity = 0;
                     listBookingsWindow.infoLabel.Content = "WHY AM I STILL VISIBLEEEEE";
                     listBookingsWindow.Viewer.Opacity = 1;
+                    listBookingsWindow.Show();
                     // TODO: create a new button element INSIDE the viewers STACKPANEL for every single booking inside the thing.
                 }
             }
