@@ -12,6 +12,8 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class AccessWindow : Window
     {
+
+        BookingRepository bookingRepository = new BookingRepository();
         AccessViewModel vm = new AccessViewModel();
         private Choice choice;
 
@@ -45,7 +47,20 @@ namespace GettingRealWPF.Views
             else if (choice == Choice.listBookings)
             {
                 ListBookingsWindow listBookingsWindow = new ListBookingsWindow(activeUser);
-                listBookingsWindow.Show();
+                string bookingsFound = bookingRepository.GetBookingsForUser(activeUser);
+                if (bookingsFound == "No bookings available for user.")
+                {
+                    listBookingsWindow.Show();
+                    listBookingsWindow.infoLabel.Opacity = 1;
+                    listBookingsWindow.infoLabel.Content = "No bookings available for user.";
+                    listBookingsWindow.Viewer.Opacity = 0;
+                } else { 
+                    listBookingsWindow.Show();
+                    listBookingsWindow.infoLabel.Opacity = 0;
+                    listBookingsWindow.infoLabel.Content = "WHY AM I STILL VISIBLEEEEE";
+                    listBookingsWindow.Viewer.Opacity = 1;
+                    // TODO: create a new button element INSIDE the viewers STACKPANEL for every single booking inside the thing.
+                }
             }
         }
     }
