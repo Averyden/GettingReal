@@ -97,7 +97,7 @@ namespace GettingRealWPF.Models.Repositories
                     User conUser = parseUser(bData[4]); // Maybe we should actually split up the name and phone numbers, so that we can check later on.
 
                     Booking loaded = new Booking(int.Parse(bID), item, startDate, endDate, conUser);
-
+                    bookings.Add(loaded);
                 }
             }
             return bookings;
