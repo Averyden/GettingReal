@@ -25,10 +25,10 @@ namespace GettingRealWPF.Models.Repositories
         public void Save(Booking b)
         {
             // We format the item and user, so we can reconstruct them later on.
-            string formattedItem = $"{b.BookingItems.Id}:{b.BookingItems.Name}:{b.BookingItems.CurrentStatus}";
+            string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.CurrentStatus}";
          
 
-            string formattedUser = $"{b.ConnectedUser.Name},{b.ConnectedUser.PhoneNumber},{b.ConnectedUser.IsAdmin}";
+            string formattedUser = $"{b.ConnectedUser.Name}|{b.ConnectedUser.PhoneNumber}|{b.ConnectedUser.IsAdmin}";
 
             // use stringhelper to format the saved string.
             List<string> bookingInfo =
@@ -97,7 +97,7 @@ namespace GettingRealWPF.Models.Repositories
                     User conUser = parseUser(bData[4]); // Maybe we should actually split up the name and phone numbers, so that we can check later on.
 
                     Booking loaded = new Booking(int.Parse(bID), item, startDate, endDate, conUser);
-
+                    bookings.Add(loaded);
                 }
             }
             return bookings;
@@ -108,13 +108,17 @@ namespace GettingRealWPF.Models.Repositories
         public string GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
         {
             string nameToCheck = u.Name; // we will perform the checks through the userName
+
+
+
             List<Booking> bookings = GetAll();
             string foundBooking = "";
             foreach (var b in bookings)
             {
                 if (b.ConnectedUser.Name == nameToCheck)
                 {
-                    foundBooking = $"Booking {b.Id}"; 
+                    foundBooking = $"Booking {b.Id}";
+
                 } else
                 {
                     foundBooking = "No bookings available for user.";
@@ -124,14 +128,14 @@ namespace GettingRealWPF.Models.Repositories
         }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
-       
+      
 
         // Helper methods so that we can reconstruct objects for example reconstructing the item class for the connected item to a certain booking.
         private Item parseItem(string data)
         {
             try
             {
-                string[] itemParts = data.Split(',');
+                string[] itemParts = data.Split('|');
                 if (itemParts.Length < 4)
                     throw new ArgumentException("Invalid item data format.");
 
@@ -156,7 +160,7 @@ namespace GettingRealWPF.Models.Repositories
 
         private User parseUser(string data) 
         {
-            string[] userParts = data.Split(":");
+            string[] userParts = data.Split("|");
             return new User(userParts[0], userParts[1], bool.Parse(userParts[2]));
         }
 

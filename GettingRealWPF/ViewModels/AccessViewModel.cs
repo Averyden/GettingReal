@@ -1,12 +1,6 @@
-using GettingRealWPF.Models.Enumerations;
 using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Enumerations;
 using GettingRealWPF.Models.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace GettingRealWPF.ViewModels
 {
@@ -18,7 +12,7 @@ namespace GettingRealWPF.ViewModels
 
         public User FetchCredentials(string name, string phoneNumber, Choice choice)
         {
-            User fetchedUser = new User(name, phoneNumber);
+            User fetchedUser = new User(name, phoneNumber, false); //TODO: implement a check for usernames.
 
             // check for privis
             if (fetchedUser.Name == "Jonas" && fetchedUser.PhoneNumber == "haha hemmelig")
