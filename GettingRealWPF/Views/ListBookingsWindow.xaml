@@ -23,7 +23,7 @@
             <Button x:Name="btn_Back" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFB2B2B2" Height="80" Width="250" FontSize="35" FontWeight="DemiBold"/>
             <Button x:Name="btn_Oplysninger" Content="Praktiske Oplysninger" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" Height="50" Width="400" FontSize="35" FontWeight="DemiBold" Margin="0,180,80,0"/>
             <Button x:Name="btn_Vejvisning" Content="Vejvisnings Guide" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" Height="50" Width="400" FontSize="35" FontWeight="DemiBold" Margin="0,250,80,0" />
-            <Label x:Name="infoLabel" Content="placeholder" HorizontalAlignment="Center" Margin="0,232,0,0" VerticalAlignment="Top" Opacity="0"/>
+            <Label x:Name="infoLabel" Content="placeholder" HorizontalAlignment="Center" Margin="0,232,0,0" VerticalAlignment="Top" Opacity="1" FontSize="48"/>
         </Grid>
 
         <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="225" Height="75" Content="Ny booking" FontSize="35" FontWeight="DemiBold" Margin="0,0,0,10" Background="#FFB2B2B2"/>
