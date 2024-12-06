@@ -121,6 +121,10 @@ namespace GettingRealWPF.Models.Repositories
                 } else
                 {
                     foundBooking = "No bookings available for user.";
+                    for (int i =0; i<10; i++)
+                    {
+                        Debug.WriteLine("I AM ALIVE LET ME OUT");
+                    }
                 }
             }
             return foundBooking;
