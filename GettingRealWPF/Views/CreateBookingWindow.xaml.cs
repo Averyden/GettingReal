@@ -3,6 +3,8 @@ using GettingRealWPF.ViewModels;
 using GettingRealWPF.Models;
 using GettingRealWPF.Models.Repositories;
 using System.Diagnostics;
+using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Enumerations;
 
 namespace GettingRealWPF.Views
 {
@@ -11,30 +13,27 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class CreateBookingWindow : Window
     {
-
-        BookingRepository bookingRepo;
         CreateBookingViewModel vm;
-        public CreateBookingWindow()
+
+        private User activeUser;
+        private Choice choice;
+        public CreateBookingWindow(User activeUser, Choice choice)
         {
             InitializeComponent();
 
-            bookingRepo = new BookingRepository();
-            vm = new CreateBookingViewModel(bookingRepo);
+            vm = new CreateBookingViewModel(activeUser);
             DataContext = vm;
 
+            this.activeUser = activeUser;
+            this.choice = choice;
 
         }
 
-        /*private void btn_Back_Click(object sender, RoutedEventArgs e)
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            AccessWindow accessWindow = new AccessWindow(AccessViewModel.Choice);
+            AccessWindow accessWindow = new AccessWindow(choice);
             this.Visibility = Visibility.Hidden;
             accessWindow.Show();
-        }*/
-
-        private void btnNewPerson_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }

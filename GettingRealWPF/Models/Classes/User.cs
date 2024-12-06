@@ -16,9 +16,21 @@ namespace GettingRealWPF.Models.Classes
             IsAdmin = isAdmin;
         }
 
+        public User(string name, string phoneNumber) : this(name, phoneNumber, false) // False by default unless wacky check is called
+        {
+
+        }
+
         public override string ToString()
         {
-            return $"{Name} ({PhoneNumber})";
+            if (IsAdmin)
+            {
+                return $"{Name} ({PhoneNumber}), [ADMINISTRATOR]";
+            }
+            else
+            {
+                return $"{Name} ({PhoneNumber})";
+            }
         }
     }
 }

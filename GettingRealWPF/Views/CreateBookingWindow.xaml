@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <Button x:Name="btn_Back" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFB2B2B2" Height="80" Width="250" FontSize="35" FontWeight="DemiBold"/>
+                <Button x:Name="btn_Back" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFB2B2B2" Height="80" Width="250" FontSize="35" FontWeight="DemiBold" Click="btn_Back_Click"/>
             </Grid>
 
             <Grid Grid.Row="1">
@@ -57,7 +57,7 @@
                     Margin="0,0,0,0" SelectionMode="SingleRange" 
                     IsTodayHighlighted="True" 
                     DisplayDate="11/1/2024"
-                    DisplayDateEnd="11/30/2024"
+                    DisplayDateEnd="12/31/2100"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib" Width="200" Height="170" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
 
 
@@ -86,7 +86,7 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <Button x:Name="btnCreateBooking" Content="Opret booking" HorizontalAlignment="Right" Height="80" Width="250" Background="#FFB2B2B2" FontSize="35" FontWeight="DemiBold" Margin="0,0,20,20"/>
+                <Button x:Name="btnCreateBooking" Content="Opret booking" HorizontalAlignment="Right" Height="80" Width="250" Background="#FFB2B2B2" FontSize="35" FontWeight="DemiBold" Margin="0,0,20,20" Command="{Binding CreateBookingCmd}" CommandParameter="{Binding}"/>
             </Grid>
         </Grid>
     </Grid>
