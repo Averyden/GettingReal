@@ -22,23 +22,21 @@ namespace GettingRealWPF.Models.Repositories
 
         }
 
-        public void Save(Booking booking)
+        public void Save(Booking b)
         {
             // We format the item and user, so we can reconstruct them later on.
+            string formattedItem = $"{b.BookingItems.Id}:{b.BookingItems.Name}:{b.BookingItems.CurrentStatus}";
+         
 
-            string items = string.Join(';', booking.BookingItems.ConvertAll(item =>
-                $"{item.Id},{item.Name},{item.Type},{item.CurrentStatus}"
-            ));
-
-            string formattedUser = $"{booking.ConnectedUser.Name},{booking.ConnectedUser.PhoneNumber},{booking.ConnectedUser.IsAdmin}";
+            string formattedUser = $"{b.ConnectedUser.Name},{b.ConnectedUser.PhoneNumber},{b.ConnectedUser.IsAdmin}";
 
             // use stringhelper to format the saved string.
             List<string> bookingInfo =
             [
-                booking.Id.ToString(),
-                items,
-                booking.StartDate.ToString(),
-                booking.EndDate.ToString(),
+                b.Id.ToString(),
+                formattedItem,
+                b.StartDate.ToString(),
+                b.EndDate.ToString(),
                 formattedUser
             ];
 
@@ -51,7 +49,7 @@ namespace GettingRealWPF.Models.Repositories
 
         }
 
-        /*
+        
         public List<Booking> GetAll()
         {
             List<Booking> bookings = new List<Booking>();
@@ -104,9 +102,9 @@ namespace GettingRealWPF.Models.Repositories
             }
             return bookings;
         }
-        */
 
-        /*
+
+        
         public string GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
         {
             string nameToCheck = u.Name; // we will perform the checks through the userName
@@ -126,23 +124,35 @@ namespace GettingRealWPF.Models.Repositories
         }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
-
+       
 
         // Helper methods so that we can reconstruct objects for example reconstructing the item class for the connected item to a certain booking.
         private Item parseItem(string data)
         {
-            string[] itemParts = data.Split(':');
-            if (itemParts[1] == "Shelter")
+            try
             {
-                return new Shelter(int.Parse(itemParts[0]), itemParts[1], (Status)Enum.Parse(typeof(Status), itemParts[2]));
-            
-            } else
-            {
-                return new Canoe(int.Parse(itemParts[0]), itemParts[1], (Status)Enum.Parse(typeof(Status), itemParts[2]));
+                string[] itemParts = data.Split(',');
+                if (itemParts.Length < 4)
+                    throw new ArgumentException("Invalid item data format.");
+
+                if (!int.TryParse(itemParts[0], out int itemId))
+                    throw new ArgumentException($"Invalid item ID: {itemParts[0]}");
+
+                if (!Enum.TryParse<ItemType>(itemParts[2], out var itemType))
+                    throw new ArgumentException($"Invalid ItemType: {itemParts[2]}");
+
+                if (!Enum.TryParse<Status>(itemParts[3], out var status))
+                    throw new ArgumentException($"Invalid Status: {itemParts[3]}");
+
+                return new Item(itemId, itemParts[1], itemType, status);
             }
-            
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error parsing item: {ex.Message}");
+                throw;
+            }
         }
-        */
+
 
         private User parseUser(string data) 
         {
