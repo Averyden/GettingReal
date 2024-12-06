@@ -117,14 +117,11 @@ namespace GettingRealWPF.Models.Repositories
             {
                 if (b.ConnectedUser.Name == nameToCheck)
                 {
-                    foundBooking = $"Booking {b.Id}"; 
+                    foundBooking = $"Booking {b.Id}";
+
                 } else
                 {
                     foundBooking = "No bookings available for user.";
-                    for (int i =0; i<10; i++)
-                    {
-                        Debug.WriteLine("I AM ALIVE LET ME OUT");
-                    }
                 }
             }
             return foundBooking;
