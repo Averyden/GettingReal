@@ -43,28 +43,14 @@ namespace GettingRealWPF.Views
        
             if (choice == Choice.createBooking)
             {
-                CreateBookingWindow createBookingWindow = new CreateBookingWindow(activeUser, choice);
+                CreateBookingWindow createBookingWindow = new CreateBookingWindow(activeUser);
                 createBookingWindow.Show();
             }
             else if (choice == Choice.listBookings)
             {
                 ListBookingsWindow listBookingsWindow = new ListBookingsWindow(activeUser);
-                string bookingsFound = bookingRepository.GetBookingsForUser(activeUser);
-                if (bookingsFound.ToString() == "No bookings available for user.")
-                {
-                    
-                    listBookingsWindow.infoLabel.Opacity = 1;
-                    listBookingsWindow.infoLabel.Content = "No bookings available for user.";
-                    listBookingsWindow.Viewer.Opacity = 0;
-                    listBookingsWindow.Show();
-                } else { 
-                    
-                    listBookingsWindow.infoLabel.Opacity = 0;
-                    listBookingsWindow.infoLabel.Content = "WHY AM I STILL VISIBLEEEEE";
-                    listBookingsWindow.Viewer.Opacity = 1;
-                    listBookingsWindow.Show();
-                    // TODO: create a new button element INSIDE the viewers STACKPANEL for every single booking inside the thing.
-                }
+                listBookingsWindow.Show();
+                
             }
         }
     }

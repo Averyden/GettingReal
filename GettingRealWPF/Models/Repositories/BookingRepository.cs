@@ -25,7 +25,7 @@ namespace GettingRealWPF.Models.Repositories
         public void Save(Booking b)
         {
             // We format the item and user, so we can reconstruct them later on.
-            string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.CurrentStatus}";
+            string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.Type}|{b.BookingItems.CurrentStatus}";
          
 
             string formattedUser = $"{b.ConnectedUser.Name}|{b.ConnectedUser.PhoneNumber}|{b.ConnectedUser.IsAdmin}";
@@ -45,14 +45,25 @@ namespace GettingRealWPF.Models.Repositories
                 sr.WriteLine(SH.PersistanceFormat(bookingInfo));
                 Debug.WriteLine("hg");
             }
+        }
 
+        public Booking Get(int id)
+        {
+            Booking? foundBooking = null;
 
+            foreach (Booking booking in bookings)
+            {
+                if (booking.Id == id)
+                {
+                    foundBooking = booking;
+                }
+            }
+            return foundBooking;
         }
 
         
         public List<Booking> GetAll()
         {
-            List<Booking> bookings = new List<Booking>();
 
             using (StreamReader SR = new StreamReader(filePath))
             {
@@ -108,6 +119,7 @@ namespace GettingRealWPF.Models.Repositories
         public string GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
         {
             string nameToCheck = u.Name; // we will perform the checks through the userName
+            string safetyNet = u.PhoneNumber;
 
 
 
@@ -115,13 +127,12 @@ namespace GettingRealWPF.Models.Repositories
             string foundBooking = "";
             foreach (var b in bookings)
             {
-                if (b.ConnectedUser.Name == nameToCheck)
+                if (b.ConnectedUser.Name == nameToCheck && b.ConnectedUser.PhoneNumber == safetyNet) // Check if a specific user belongs to the booking
                 {
                     foundBooking = $"Booking {b.Id}";
-
                 } else
                 {
-                    foundBooking = "No bookings available for user.";
+                    foundBooking = "";
                 }
             }
             return foundBooking;

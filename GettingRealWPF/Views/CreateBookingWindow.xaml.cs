@@ -16,8 +16,7 @@ namespace GettingRealWPF.Views
         CreateBookingViewModel vm;
 
         private User activeUser;
-        private Choice choice;
-        public CreateBookingWindow(User activeUser, Choice choice)
+        public CreateBookingWindow(User activeUser)
         {
             InitializeComponent();
 
@@ -25,13 +24,11 @@ namespace GettingRealWPF.Views
             DataContext = vm;
 
             this.activeUser = activeUser;
-            this.choice = choice;
-
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
-            AccessWindow accessWindow = new AccessWindow(choice);
+            AccessWindow accessWindow = new AccessWindow(Choice.createBooking);
             this.Visibility = Visibility.Hidden;
             accessWindow.Show();
         }

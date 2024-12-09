@@ -1,5 +1,6 @@
 ﻿using GettingRealWPF.Models.Classes;
 using GettingRealWPF.Models.Commands;
+using GettingRealWPF.Models.Enumerations;
 using GettingRealWPF.Models.Repositories;
 using System.Windows.Input;
 
@@ -20,14 +21,13 @@ namespace GettingRealWPF.ViewModels
 
         public void CreateBooking()//int id, Item bookingItems, DateTime startDate, DateTime endDate, User connectedUser)
         {
-            // For test purposes
-            //List<Item> items = itemRepo.GetAll();
+            // For testing
 
             Booking booking = new Booking(
                 id: 0, 
-                bookingItems: null, 
+                bookingItems: new Item(0, "Store Shelter", ItemType.Shelter, Status.Available), 
                 startDate: DateTime.Today, 
-                endDate: DateTime.Today, 
+                endDate: DateTime.Today,
                 connectedUser: activeUser
             );
 

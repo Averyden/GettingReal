@@ -7,16 +7,41 @@
         mc:Ignorable="d"
         Title="VHOBook" Height="1080" Width="1920" WindowState="Maximized"
         Background="#5d6532">
+    
     <Grid>
-        <Label x:Name="titleLblSeeBook" Content="Informationer for: ${Booking ID}" HorizontalAlignment="Center" Margin="0,50,0,0" FontSize="40" FontWeight="Black" VerticalAlignment="Top"/>
-        <Label x:Name="bookingInformation" Content="Indeholder: ${booking indhold} og er booket til: ${dato}" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="40"/>
-        <Button Content="Rediger" HorizontalAlignment="Center" Margin="0,0,250,50" VerticalAlignment="Bottom" Height="75" Width="225" FontSize="35" FontWeight="DemiBold" Background="#FFB2B2B2"/>
-        <Button Content="Slet" HorizontalAlignment="Center" Margin="250,0,0,50" VerticalAlignment="Bottom" Height="75" Width="225" FontSize="35" FontWeight="DemiBold" Background="#FFB2B2B2"/>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
         <Grid Grid.Row="0">
-            <Button x:Name="btn_Back" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFB2B2B2" Height="80" Width="250" FontSize="35" FontWeight="DemiBold"/>
+
+            <Button x:Name="btn_Back" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFB2B2B2" Height="80" Width="250" FontSize="35" FontWeight="DemiBold" Click="btn_Back_Click"/>
+
+            <Label Content="Information om booking" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="80" FontWeight="Bold"/>
+
+            <StackPanel>
+                <Button x:Name="btn_Oplysninger" Content="Praktiske Oplysninger" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" Height="50" Width="400" FontSize="35" FontWeight="DemiBold"/>
+                <Button x:Name="btn_Vejvisning" Content="Vejvisnings Guide" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" Height="50" Width="400" FontSize="35" FontWeight="DemiBold"/>
+            </StackPanel>
+
         </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <Label Content="{Binding Booking.Id}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Opdater" Width="225" Height="75" FontSize="35" FontWeight="DemiBold" Margin="0,0,20,10" Background="#FFB2B2B2"/>
+                <Button Content="Slet" Width="225" Height="75" FontSize="35" FontWeight="DemiBold" Margin="20,0,0,10" Background="#FFB2B2B2"/>
+            </StackPanel>
+        </Grid>
+
     </Grid>
 
-   
+
 </Window>
