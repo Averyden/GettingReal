@@ -1,6 +1,7 @@
 using GettingRealWPF.Models.Classes;
 using GettingRealWPF.Models.Repositories;
 using GettingRealWPF.ViewModels;
+using GettingRealWPF.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,15 @@ namespace GettingRealWPF.Models.Commands
             {
                 BookingRepository br = new BookingRepository();
                 br.DeleteBooking(book);
+
+                var activeUser = book.ConnectedUser;
+                if (activeUser != null)
+                {
+                    ListBookingsWindow listBookingsWindow = new ListBookingsWindow(activeUser);
+                    listBookingsWindow.Show();
+                }
             }
+           
         }
     }
 }
