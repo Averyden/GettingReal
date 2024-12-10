@@ -1,14 +1,67 @@
 using GettingRealWPF.Models.Classes;
 using GettingRealWPF.Models.Enumerations;
 using GettingRealWPF.Models.Repositories;
+using System.ComponentModel;
 
 namespace GettingRealWPF.ViewModels
 {
-    public class AccessViewModel
+    public class AccessViewModel : INotifyPropertyChanged
     {
         BookingRepository br = new BookingRepository();
         ItemRepository ir = new ItemRepository();
         public Choice Choice { get; set; }
+
+        private string _name;
+        private string _phone;
+        private bool _isContinueButtonEnabled;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    OnPropertyChanged(nameof(Name));
+                    UpdateButtonState();
+                }
+            }
+        }
+
+        public string Phone
+        {
+            get { return _phone; }
+            set
+            {
+                if (_phone != value)
+                {
+                    _phone = value;
+                    OnPropertyChanged(nameof(Phone));
+                    UpdateButtonState();
+                }
+            }
+        }
+
+        private void UpdateButtonState()
+        {
+            IsContinueButtonEnabled = !string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(Phone);
+        }
+
+        public bool IsContinueButtonEnabled
+        {
+            get { return _isContinueButtonEnabled; }
+            private set
+            {
+                if (_isContinueButtonEnabled != value)
+                {
+                    _isContinueButtonEnabled = value;
+                    OnPropertyChanged(nameof(IsContinueButtonEnabled));
+                }
+            }
+        }
 
         public User FetchCredentials(string name, string phoneNumber, Choice choice)
         {
@@ -36,6 +89,11 @@ namespace GettingRealWPF.ViewModels
             //br.Save(b);
 
             //Debug.WriteLine(br.GetAll().ToString());
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
