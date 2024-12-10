@@ -145,6 +145,7 @@ namespace GettingRealWPF.Models.Repositories
                 if (b.ConnectedUser.Name == nameToCheck && b.ConnectedUser.PhoneNumber == safetyNet) // Check if a specific user belongs to the booking
                 {
                     foundBooking = $"Booking {b.Id}";
+                    break;
                 }
                 else
                 {
