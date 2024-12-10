@@ -23,5 +23,21 @@ namespace GettingRealWPF.Models.Classes
         {
             return $"booking id {Id} with user {ConnectedUser.ToString()}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is not Booking other) return false;
+            return Id == other.Id &&
+                   BookingItems.Equals(other.BookingItems) &&
+                   ConnectedUser.Equals(other.ConnectedUser) &&
+                   StartDate == other.StartDate &&
+                   EndDate == other.EndDate;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, BookingItems, ConnectedUser, StartDate, EndDate);
+        }
+
     }
 }
