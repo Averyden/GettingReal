@@ -23,7 +23,7 @@ namespace GettingRealWPF.Models.Repositories
 
         public void Save(List<Booking> bookingsToSave)
         {
-            using (StreamWriter sr = new StreamWriter(filePath, append: false))
+            using (StreamWriter sr = new StreamWriter(filePath))
             {
                 foreach (Booking b in bookingsToSave)
                 {
