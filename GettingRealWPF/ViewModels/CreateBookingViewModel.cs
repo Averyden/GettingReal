@@ -19,19 +19,17 @@ namespace GettingRealWPF.ViewModels
             this.activeUser = activeUser;
         }
 
-        public void CreateBooking()//int id, Item bookingItems, DateTime startDate, DateTime endDate, User connectedUser)
+        public void CreateBooking()
         {
-            // For testing
-
             Booking booking = new Booking(
-                id: 0, 
-                bookingItems: new Item(0, "Store Shelter", ItemType.Shelter, Status.Available), 
-                startDate: DateTime.Today, 
+                bookingItems: new Item(0, "Store Shelter", ItemType.Shelter, Status.Available),
+                startDate: DateTime.Today,
                 endDate: DateTime.Today,
                 connectedUser: activeUser
             );
-            bookingRepo.Add(booking);
-            bookingRepo.Save(bookingRepo.GetAll());
+
+            bookingRepo.Add(booking); // Add the booking to the in-memory list
+            bookingRepo.Save(); // Save the updated in-memory list to the file
         }
     }
 }
