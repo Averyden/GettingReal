@@ -150,6 +150,20 @@ namespace GettingRealWPF.Models.Repositories
             return null; // if not found, return null
         }
 
+        public void DeleteBooking(Booking bookingToDelete)
+        {
+            List<Booking> bookings = GetAll();
+            bookings.RemoveAll(b => b.Equals(bookingToDelete));
+
+            using (StreamWriter writer = new StreamWriter(filePath, append: false))
+            {
+                foreach (Booking booking in bookings)
+                {
+                    Save(booking);
+                }
+            }
+        }
+
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
 
 
