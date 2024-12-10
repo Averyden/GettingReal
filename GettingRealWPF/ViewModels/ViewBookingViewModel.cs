@@ -1,4 +1,5 @@
 ﻿using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,12 +12,32 @@ namespace GettingRealWPF.ViewModels
 {
 
     public class ViewBookingViewModel
-    {        
-        public Booking Booking { get; set; }
+    {
+        private DeleteBookingCmd _delCmd { get; set; }
+
+        public DeleteBookingCmd DeleteCmd
+        {
+            get
+            {
+                if (_delCmd == null)
+                {
+                    _delCmd = new DeleteBookingCmd();
+                }
+                return _delCmd;
+            }
+            set
+            {
+                _delCmd = value;
+            }
+        }
+
+
+
+        public Booking SelectedBooking { get; set; }
 
         public ViewBookingViewModel(Booking booking)
         {
-            Booking = booking;
+            SelectedBooking = booking;
         }
     }
 }
