@@ -1,5 +1,6 @@
 ﻿using GettingRealWPF.Models.Classes;
 using GettingRealWPF.Models.Repositories;
+using System.Diagnostics;
 
 namespace GettingRealWPF.ViewModels
 {
@@ -20,13 +21,18 @@ namespace GettingRealWPF.ViewModels
 
         private bool UpdateHasBooking()
         {
-            if (string.IsNullOrWhiteSpace(Booking.ToString()))
+            try
             {
-                return false;
-            }
-            else
-            {
+                if (Booking == null)
+                {
+                    return false;
+                }
                 return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error while checking bookings: {e.Message}");
+                return false;
             }
         }
     }
