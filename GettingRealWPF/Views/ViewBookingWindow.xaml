@@ -32,19 +32,19 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Booking ID:" FontSize="50" Margin="0,0,0,10" FontWeight="Bold"/>
-                    <Label Content="{Binding Booking.Id}" FontSize="50"/>
+                    <Label Content="{Binding SelectedBooking.Id}" FontSize="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Booking-artikel:" FontSize="50" Margin="0,0,0,10" FontWeight="Bold"/>
-                    <Label Content="{Binding Booking.BookingItems}" FontSize="50"/>
+                    <Label Content="{Binding SelectedBooking.BookingItems}" FontSize="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Startdato:" FontSize="50" Margin="0,0,0,10" FontWeight="Bold"/>
-                    <Label Content="{Binding Booking.StartDate}" FontSize="50"/>
+                    <Label Content="{Binding SelectedBooking.StartDate}" FontSize="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Slutdato:" FontSize="50" Margin="0,0,0,10" FontWeight="Bold"/>
-                    <Label Content="{Binding Booking.EndDate}" FontSize="50"/>
+                    <Label Content="{Binding SelectedBooking.EndDate}" FontSize="50"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
@@ -52,7 +52,7 @@
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="Opdater" Width="225" Height="75" FontSize="35" FontWeight="DemiBold" Margin="0,0,20,10" Background="#FFB2B2B2"/>
-                <Button x:Name="btnDel" Content="Slet" Width="225" Height="75" FontSize="35" FontWeight="DemiBold" Margin="20,0,0,10" Background="#FFB2B2B2"/>
+                <Button x:Name="btnDel" Content="Slet" Width="225" Height="75" FontSize="35" FontWeight="DemiBold" Margin="20,0,0,10" Background="#FFB2B2B2" Command="{Binding DeleteCmd}" CommandParameter="{Binding SelectedBooking}"/>
             </StackPanel>
         </Grid>
 
