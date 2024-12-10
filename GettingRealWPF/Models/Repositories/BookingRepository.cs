@@ -15,6 +15,22 @@ namespace GettingRealWPF.Models.Repositories
 
         private readonly string filePath = "bookings.txt"; // i have no fucking clue if we should update our DCD to include this, but it is ABSOLUTELY neccesary or else we cant save!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+        public BookingRepository()
+        {
+            bookings = GetAll();
+
+            if (bookings.Any())
+            {
+                Booking._id = bookings.Max(b => b.Id) + 1;
+            }
+            else
+            {
+                Booking._id = 0;
+            }
+
+            Debug.WriteLine($"Booking ID counter initialized to {Booking._id}");
+        }
+
         public void Add(Booking booking)
         {
             bookings.Add(booking);
@@ -120,7 +136,7 @@ namespace GettingRealWPF.Models.Repositories
 
                     User conUser = parseUser(bData[4]); // Maybe we should actually split up the name and phone numbers, so that we can check later on.
 
-                    Booking loaded = new Booking(int.Parse(bID), item, startDate, endDate, conUser);
+                    Booking loaded = new Booking(item, startDate, endDate, conUser); //int.Parse(bID)
                     bookings.Add(loaded);
                 }
             }
@@ -150,12 +166,11 @@ namespace GettingRealWPF.Models.Repositories
 
         public void DeleteBooking(Booking bookingToDelete)
         {
-            Debug.WriteLine(bookingToDelete.ToString());
-            List<Booking> bookings = GetAll();
-            bookings.Remove(bookingToDelete);
-            this.bookings.Remove(bookingToDelete);
-            Save(bookings);
+            bookings = GetAll(); 
+            bookings.RemoveAll(b => b.Id == bookingToDelete.Id); 
+            Save(bookings); 
         }
+
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
 
