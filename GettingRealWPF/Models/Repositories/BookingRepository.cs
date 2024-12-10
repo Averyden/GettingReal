@@ -23,7 +23,7 @@ namespace GettingRealWPF.Models.Repositories
 
         public void Save(List<Booking> bookingsToSave)
         {
-            using (StreamWriter sr = new StreamWriter(filePath, append: false)) // Overwrite the file
+            using (StreamWriter sr = new StreamWriter(filePath, append: false))
             {
                 foreach (Booking b in bookingsToSave)
                 {
@@ -152,14 +152,7 @@ namespace GettingRealWPF.Models.Repositories
         {
             List<Booking> bookings = GetAll();
             bookings.RemoveAll(b => b.Equals(bookingToDelete));
-
-            using (StreamWriter writer = new StreamWriter(filePath, append: false))
-            {
-                foreach (Booking booking in bookings)
-                {
-                    Save(booking);
-                }
-            }
+            Save(bookings);
         }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
