@@ -52,7 +52,7 @@
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="Opdater" Width="225" Height="75" FontSize="35" FontWeight="DemiBold" Margin="0,0,20,10" Background="#FFB2B2B2"/>
-                <Button Content="Slet" Width="225" Height="75" FontSize="35" FontWeight="DemiBold" Margin="20,0,0,10" Background="#FFB2B2B2"/>
+                <Button x:Name="btnDel" Content="Slet" Width="225" Height="75" FontSize="35" FontWeight="DemiBold" Margin="20,0,0,10" Background="#FFB2B2B2"/>
             </StackPanel>
         </Grid>
 
