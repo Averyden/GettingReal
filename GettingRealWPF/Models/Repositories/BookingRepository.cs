@@ -21,28 +21,26 @@ namespace GettingRealWPF.Models.Repositories
 
         }
 
-        public void Save(Booking b)
+        public void Save(List<Booking> bookingsToSave)
         {
-            // We format the item and user, so we can reconstruct them later on.
-            string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.Type}|{b.BookingItems.CurrentStatus}";
-
-
-            string formattedUser = $"{b.ConnectedUser.Name}|{b.ConnectedUser.PhoneNumber}|{b.ConnectedUser.IsAdmin}";
-
-            // use stringhelper to format the saved string.
-            List<string> bookingInfo =
-            [
-                b.Id.ToString(),
-                formattedItem,
-                b.StartDate.ToString(),
-                b.EndDate.ToString(),
-                formattedUser
-            ];
-
-            using (StreamWriter sr = new StreamWriter(filePath, append: true))
+            using (StreamWriter sr = new StreamWriter(filePath, append: false)) // Overwrite the file
             {
-                sr.WriteLine(SH.PersistanceFormat(bookingInfo));
-                Debug.WriteLine("hg");
+                foreach (Booking b in bookingsToSave)
+                {
+                    string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.Type}|{b.BookingItems.CurrentStatus}";
+                    string formattedUser = $"{b.ConnectedUser.Name}|{b.ConnectedUser.PhoneNumber}|{b.ConnectedUser.IsAdmin}";
+
+                    List<string> bookingInfo = new List<string>
+                    {
+                        b.Id.ToString(),
+                        formattedItem,
+                        b.StartDate.ToString(),
+                        b.EndDate.ToString(),
+                        formattedUser
+                    };
+
+                    sr.WriteLine(SH.PersistanceFormat(bookingInfo));
+                }
             }
         }
 
@@ -85,7 +83,7 @@ namespace GettingRealWPF.Models.Repositories
                     string bStartDate = bData[2]; // Start Date
                     string bEndDate = bData[3]; // End Date
 
-                  
+
 
                     string cleanStartDate = bStartDate.Split(' ')[0].Trim();
                     string cleanEndDate = bEndDate.Split(' ')[0].Trim();
@@ -130,7 +128,7 @@ namespace GettingRealWPF.Models.Repositories
         }
 
 
-        
+
         public Booking GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
 
         {
