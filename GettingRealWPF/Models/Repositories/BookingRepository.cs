@@ -15,34 +15,48 @@ namespace GettingRealWPF.Models.Repositories
 
         private readonly string filePath = "bookings.txt"; // i have no fucking clue if we should update our DCD to include this, but it is ABSOLUTELY neccesary or else we cant save!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+        public BookingRepository()
+        {
+            bookings = GetAll();
+
+            if (bookings.Any())
+            {
+                Booking._id = bookings.Max(b => b.Id) + 1;
+            }
+            else
+            {
+                Booking._id = 0;
+            }
+
+            Debug.WriteLine($"Booking ID counter initialized to {Booking._id}");
+        }
+
         public void Add(Booking booking)
         {
             bookings.Add(booking);
 
         }
 
-        public void Save(Booking b)
+        public void Save()
         {
-            // We format the item and user, so we can reconstruct them later on.
-            string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.Type}|{b.BookingItems.CurrentStatus}";
-
-
-            string formattedUser = $"{b.ConnectedUser.Name}|{b.ConnectedUser.PhoneNumber}|{b.ConnectedUser.IsAdmin}";
-
-            // use stringhelper to format the saved string.
-            List<string> bookingInfo =
-            [
-                b.Id.ToString(),
-                formattedItem,
-                b.StartDate.ToString(),
-                b.EndDate.ToString(),
-                formattedUser
-            ];
-
-            using (StreamWriter sr = new StreamWriter(filePath, append: true))
+            using (StreamWriter sr = new StreamWriter(filePath))
             {
-                sr.WriteLine(SH.PersistanceFormat(bookingInfo));
-                Debug.WriteLine("hg");
+                foreach (Booking b in bookings)
+                {
+                    string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.Type}|{b.BookingItems.CurrentStatus}";
+                    string formattedUser = $"{b.ConnectedUser.Name}|{b.ConnectedUser.PhoneNumber}|{b.ConnectedUser.IsAdmin}";
+
+                    List<string> bookingInfo = new List<string>
+                    {
+                        b.Id.ToString(),
+                        formattedItem,
+                        b.StartDate.ToString("dd-MM-yyyy HH:mm:ss"),
+                        b.EndDate.ToString("dd-MM-yyyy HH:mm:ss"),
+                        formattedUser
+                    };
+
+                    sr.WriteLine(SH.PersistanceFormat(bookingInfo));
+                }
             }
         }
 
@@ -63,74 +77,37 @@ namespace GettingRealWPF.Models.Repositories
 
         public List<Booking> GetAll()
         {
+            List<Booking> loadedBookings = new List<Booking>();
 
             using (StreamReader SR = new StreamReader(filePath))
             {
                 string line;
                 while ((line = SR.ReadLine()) != null)
                 {
-                    string[] dateFormats = {
-                        "dd-MM-yyyy",
-                        "dd/MM-yyyy",
-                        "MM-dd-yyyy",
-                        "MM/dd-yyyy",
-                        "dd-MM-yyyy HH:mm:ss",
-                        "MM-dd-yyyy hh:mm:ss tt",
-                        "dd/MM/yyyy hh:mm:ss tt"
-                    };
                     string[] bData = line.Split(";");
+                    int bookingId = int.Parse(bData[0]);
 
-                    string bID = bData[0]; // Should give us the booking id?
                     Item item = parseItem(bData[1]);
-                    string bStartDate = bData[2]; // Start Date
-                    string bEndDate = bData[3]; // End Date
+                    DateTime startDate = DateTime.ParseExact(bData[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                    DateTime endDate = DateTime.ParseExact(bData[3], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                    User conUser = parseUser(bData[4]);
 
-                  
-
-                    string cleanStartDate = bStartDate.Split(' ')[0].Trim();
-                    string cleanEndDate = bEndDate.Split(' ')[0].Trim();
-
-                    DateTime parsedStartDate;
-                    DateTime parsedEndDate;
-
-                    DateTime startDate = DateTime.Now;
-                    DateTime endDate = DateTime.Now;
-
-                    if (DateTime.TryParseExact(cleanStartDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedStartDate))
+             
+                    Booking loaded = new Booking(item, startDate, endDate, conUser)
                     {
-                        startDate = parsedStartDate.Date;
-                    }
-                    else
-                    {
-                        Debug.WriteLine($"The start date '{bStartDate}' does not match the allowed formats.");
-                    }
+                        Id = bookingId 
+                    };
 
-                    if (DateTime.TryParseExact(cleanEndDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedEndDate))
-                    {
-                        endDate = parsedEndDate.Date;
-                    }
-                    else
-                    {
-                        Debug.WriteLine($"The end date '{bEndDate}' does not match the allowed formats.");
-                    }
-
-
-                    //DateTime startDate = DateTime.ParseExact(bData[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-                    //DateTime endDate = DateTime.ParseExact(bData[3], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-
-
-
-                    User conUser = parseUser(bData[4]); // Maybe we should actually split up the name and phone numbers, so that we can check later on.
-
-                    Booking loaded = new Booking(int.Parse(bID), item, startDate, endDate, conUser);
-                    bookings.Add(loaded);
+                    loadedBookings.Add(loaded);
                 }
             }
-            return bookings;
+
+            return loadedBookings;
         }
 
 
-        
+
+
         public Booking GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
 
         {
@@ -149,6 +126,14 @@ namespace GettingRealWPF.Models.Repositories
             }
             return null; // if not found, return null
         }
+
+        public void DeleteBooking(Booking bookingToDelete)
+        {
+            bookings = GetAll(); 
+            bookings.RemoveAll(b => b.Id == bookingToDelete.Id); 
+            Save(); 
+        }
+
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
 
