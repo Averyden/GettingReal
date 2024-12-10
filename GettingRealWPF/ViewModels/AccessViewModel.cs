@@ -91,9 +91,20 @@ namespace GettingRealWPF.ViewModels
             //Debug.WriteLine(br.GetAll().ToString());
         }
 
-        protected virtual void OnPropertyChanged(string propertyName)
+
+        protected void OnPropertyChanged(string propertyName)
+
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+            PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+
+            if (propertyChanged != null)
+
+            {
+                propertyChanged(this, new PropertyChangedEventArgs(propertyName));
+
+            }
+
         }
     }
 }
