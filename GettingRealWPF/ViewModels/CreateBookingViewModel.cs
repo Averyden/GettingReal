@@ -30,8 +30,8 @@ namespace GettingRealWPF.ViewModels
                 endDate: DateTime.Today,
                 connectedUser: activeUser
             );
-
-            bookingRepo.Save(booking);
+            bookingRepo.Add(booking);
+            bookingRepo.Save(bookingRepo.GetAll());
         }
     }
 }
