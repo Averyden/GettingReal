@@ -20,7 +20,7 @@ namespace GettingRealWPF.Models.Classes
 
         public override string ToString()
         {
-            return "Hi! im jogn";
+            return $"{Name}, {Type}";
         }
     }
 

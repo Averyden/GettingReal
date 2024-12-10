@@ -34,7 +34,22 @@
 
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding HasBooking, Converter={StaticResource BoolToInvisibility}}">
-                <Button x:Name="btn_Booking" Content="{Binding Booking}" HorizontalContentAlignment="Center" FontSize="50" Click="btn_Booking_Click"/>
+                <Button x:Name="btn_Booking" HorizontalContentAlignment="Center" FontSize="50" Click="btn_Booking_Click">
+                    <Button.Content>
+                        <TextBlock>
+                            <Span>
+                                <Run Text="Booking ID "/>
+                                <Run Text="{Binding Booking.Id}"/>
+                            </Span>
+                            <LineBreak/>
+                            <Span>
+                                <Run Text="{Binding Booking.StartDate, StringFormat={}{0:MM/dd/yyyy}}"/>
+                                <Run Text=" til "/>
+                                <Run Text="{Binding Booking.EndDate, StringFormat={}{0:MM/dd/yyyy}}"/>
+                            </Span>
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsBookingEmpty, Converter={StaticResource BoolToInvisibility}}">

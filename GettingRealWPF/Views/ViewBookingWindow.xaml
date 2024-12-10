@@ -29,8 +29,23 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <StackPanel>
-                <Label Content="{Binding Booking.Id}"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Booking ID:" FontSize="50" Margin="0,0,0,10" FontWeight="Bold"/>
+                    <Label Content="{Binding Booking.Id}" FontSize="50"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Booking-artikel:" FontSize="50" Margin="0,0,0,10" FontWeight="Bold"/>
+                    <Label Content="{Binding Booking.BookingItems}" FontSize="50"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Startdato:" FontSize="50" Margin="0,0,0,10" FontWeight="Bold"/>
+                    <Label Content="{Binding Booking.StartDate}" FontSize="50"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Slutdato:" FontSize="50" Margin="0,0,0,10" FontWeight="Bold"/>
+                    <Label Content="{Binding Booking.EndDate}" FontSize="50"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
 

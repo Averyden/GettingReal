@@ -11,14 +11,17 @@ namespace GettingRealWPF.ViewModels
 {
     public class BookingViewModel
     {
-        private Booking booking;
-        public List<ItemRepository> BookingItems { get; set; } = new List<ItemRepository>();
+        public Booking Booking { get; set; }
+        public Item BookingItems { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public BookingViewModel()
+        public BookingViewModel(Booking booking)
         {
-            
+            Booking = booking;
+            BookingItems = booking.BookingItems;
+            StartDate = booking.StartDate;
+            EndDate = booking.EndDate;
         }
     }
 }
