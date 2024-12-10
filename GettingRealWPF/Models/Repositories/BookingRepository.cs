@@ -37,11 +37,11 @@ namespace GettingRealWPF.Models.Repositories
 
         }
 
-        public void Save(List<Booking> bookingsToSave)
+        public void Save()
         {
             using (StreamWriter sr = new StreamWriter(filePath))
             {
-                foreach (Booking b in bookingsToSave)
+                foreach (Booking b in bookings)
                 {
                     string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.Type}|{b.BookingItems.CurrentStatus}";
                     string formattedUser = $"{b.ConnectedUser.Name}|{b.ConnectedUser.PhoneNumber}|{b.ConnectedUser.IsAdmin}";
@@ -50,8 +50,8 @@ namespace GettingRealWPF.Models.Repositories
                     {
                         b.Id.ToString(),
                         formattedItem,
-                        b.StartDate.ToString(),
-                        b.EndDate.ToString(),
+                        b.StartDate.ToString("dd-MM-yyyy HH:mm:ss"),
+                        b.EndDate.ToString("dd-MM-yyyy HH:mm:ss"),
                         formattedUser
                     };
 
@@ -131,7 +131,7 @@ namespace GettingRealWPF.Models.Repositories
         {
             bookings = GetAll(); 
             bookings.RemoveAll(b => b.Id == bookingToDelete.Id); 
-            Save(bookings); 
+            Save(); 
         }
 
 
