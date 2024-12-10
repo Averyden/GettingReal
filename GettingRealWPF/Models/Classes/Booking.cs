@@ -18,5 +18,10 @@ namespace GettingRealWPF.Models.Classes
             EndDate = endDate;
             ConnectedUser = connectedUser;
         }
+
+        public override string ToString()
+        {
+            return $"booking id {Id} with user {ConnectedUser.ToString()}";
+        }
     }
 }
