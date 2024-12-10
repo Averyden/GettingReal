@@ -1,5 +1,4 @@
 ﻿using GettingRealWPF.Models.Enumerations;
-using System.ComponentModel;
 
 namespace GettingRealWPF.Models.Classes
 {

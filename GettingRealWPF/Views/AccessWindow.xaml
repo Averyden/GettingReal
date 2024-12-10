@@ -14,15 +14,15 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
             <Label Content="Navn:" FontSize="30" Padding="0,0,147,0"/>
-            <TextBox x:Name="tbName" Background="Gray" Height="50" Width="400" FontSize="30"/>
+            <TextBox x:Name="tbName" Background="Gray" Height="50" Width="400" FontSize="30" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,200,0,0">
             <Label Content="Telefonnummer:" FontSize="30"/>
-            <TextBox x:Name="tbPhone" Background="Gray" Height="50" Width="400" FontSize="30"/>
+            <TextBox x:Name="tbPhone" Background="Gray" Height="50" Width="400" FontSize="30" Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
 
-        <Button x:Name="btn_Continue" Content="Videre" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="#FFB2B2B2" Margin="0,0,0,50" Height="125" Width="500" FontSize="80" FontWeight="DemiBold" Click="btn_Continue_Click"/>
+        <Button x:Name="btn_Continue" Content="Videre" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="#FFB2B2B2" Margin="0,0,0,50" Height="125" Width="500" FontSize="80" FontWeight="DemiBold" IsEnabled="{Binding IsContinueButtonEnabled}" Click="btn_Continue_Click"/>
         <Button x:Name="btn_Back" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFB2B2B2" Height="80" Width="250" FontSize="35" FontWeight="DemiBold" Click="btn_Back_Click"/>
     </Grid>
 </Window>

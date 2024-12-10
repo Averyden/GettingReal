@@ -1,10 +1,9 @@
-﻿using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Classes;
 using GettingRealWPF.Models.Enumerations;
 using StringHelperLibrary;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-
 
 namespace GettingRealWPF.Models.Repositories
 {
@@ -26,7 +25,7 @@ namespace GettingRealWPF.Models.Repositories
         {
             // We format the item and user, so we can reconstruct them later on.
             string formattedItem = $"{b.BookingItems.Id}|{b.BookingItems.Name}|{b.BookingItems.Type}|{b.BookingItems.CurrentStatus}";
-         
+
 
             string formattedUser = $"{b.ConnectedUser.Name}|{b.ConnectedUser.PhoneNumber}|{b.ConnectedUser.IsAdmin}";
 
@@ -61,7 +60,7 @@ namespace GettingRealWPF.Models.Repositories
             return foundBooking;
         }
 
-        
+
         public List<Booking> GetAll()
         {
 
@@ -70,7 +69,15 @@ namespace GettingRealWPF.Models.Repositories
                 string line;
                 while ((line = SR.ReadLine()) != null)
                 {
-                    string[] dateFormats = { "dd-MM-yyyy", "dd/MM-yyyy", "MM-dd-yyyy", "MM/dd-yyyy" };
+                    string[] dateFormats = {
+                        "dd-MM-yyyy",
+                        "dd/MM-yyyy",
+                        "MM-dd-yyyy",
+                        "MM/dd-yyyy",
+                        "dd-MM-yyyy HH:mm:ss",
+                        "MM-dd-yyyy hh:mm:ss tt",
+                        "dd/MM/yyyy hh:mm:ss tt"
+                    };
                     string[] bData = line.Split(";");
 
                     string bID = bData[0]; // Should give us the booking id?
@@ -78,30 +85,38 @@ namespace GettingRealWPF.Models.Repositories
                     string bStartDate = bData[2]; // Start Date
                     string bEndDate = bData[3]; // End Date
 
-                    DateTime parsedDate;
-                    DateTime startDate = DateTime.Today;
-                    DateTime endDate = DateTime.Today;
-                    
+                  
 
-                    if (DateTime.TryParseExact(bStartDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+                    string cleanStartDate = bStartDate.Split(' ')[0].Trim();
+                    string cleanEndDate = bEndDate.Split(' ')[0].Trim();
+
+                    DateTime parsedStartDate;
+                    DateTime parsedEndDate;
+
+                    DateTime startDate = DateTime.Now;
+                    DateTime endDate = DateTime.Now;
+
+                    if (DateTime.TryParseExact(cleanStartDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedStartDate))
                     {
-                        startDate = parsedDate;
+                        startDate = parsedStartDate.Date;
                     }
                     else
                     {
-                        Debug.WriteLine("The start date does not match the allowed formats");
+                        Debug.WriteLine($"The start date '{bStartDate}' does not match the allowed formats.");
                     }
-                    if (DateTime.TryParseExact(bEndDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+
+                    if (DateTime.TryParseExact(cleanEndDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedEndDate))
                     {
-                        endDate = parsedDate;
+                        endDate = parsedEndDate.Date;
                     }
                     else
                     {
-                        Debug.WriteLine("The end date does not match the allowed formats");
+                        Debug.WriteLine($"The end date '{bEndDate}' does not match the allowed formats.");
                     }
 
-                        //DateTime startDate = DateTime.ParseExact(bData[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-                        //DateTime endDate = DateTime.ParseExact(bData[3], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+
+                    //DateTime startDate = DateTime.ParseExact(bData[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                    //DateTime endDate = DateTime.ParseExact(bData[3], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
 
 
 
@@ -117,6 +132,7 @@ namespace GettingRealWPF.Models.Repositories
 
         
         public Booking GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
+
         {
             string nameToCheck = u.Name; // we will perform the checks through the userName
             string safetyNet = u.PhoneNumber;
@@ -135,7 +151,7 @@ namespace GettingRealWPF.Models.Repositories
         }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎
-      
+
 
         // Helper methods so that we can reconstruct objects for example reconstructing the item class for the connected item to a certain booking.
         private Item parseItem(string data)
@@ -165,7 +181,7 @@ namespace GettingRealWPF.Models.Repositories
         }
 
 
-        private User parseUser(string data) 
+        private User parseUser(string data)
         {
             string[] userParts = data.Split("|");
             return new User(userParts[0], userParts[1], bool.Parse(userParts[2]));
