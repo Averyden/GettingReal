@@ -150,8 +150,10 @@ namespace GettingRealWPF.Models.Repositories
 
         public void DeleteBooking(Booking bookingToDelete)
         {
+            Debug.WriteLine(bookingToDelete.ToString());
             List<Booking> bookings = GetAll();
-            bookings.RemoveAll(b => b.Equals(bookingToDelete));
+            bookings.Remove(bookingToDelete);
+            this.bookings.Remove(bookingToDelete);
             Save(bookings);
         }
 
