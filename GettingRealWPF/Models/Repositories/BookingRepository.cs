@@ -85,27 +85,35 @@ namespace GettingRealWPF.Models.Repositories
                     string bStartDate = bData[2]; // Start Date
                     string bEndDate = bData[3]; // End Date
 
-                    DateTime parsedDate;
-                    DateTime startDate = DateTime.Today;
-                    DateTime endDate = DateTime.Today;
+                  
 
+                    string cleanStartDate = bStartDate.Split(' ')[0].Trim();
+                    string cleanEndDate = bEndDate.Split(' ')[0].Trim();
 
-                    if (DateTime.TryParseExact(bStartDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+                    DateTime parsedStartDate;
+                    DateTime parsedEndDate;
+
+                    DateTime startDate = DateTime.Now;
+                    DateTime endDate = DateTime.Now;
+
+                    if (DateTime.TryParseExact(cleanStartDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedStartDate))
                     {
-                        startDate = parsedDate;
+                        startDate = parsedStartDate.Date;
                     }
                     else
                     {
-                        Debug.WriteLine("The start date does not match the allowed formats");
+                        Debug.WriteLine($"The start date '{bStartDate}' does not match the allowed formats.");
                     }
-                    if (DateTime.TryParseExact(bEndDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+
+                    if (DateTime.TryParseExact(cleanEndDate, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedEndDate))
                     {
-                        endDate = parsedDate;
+                        endDate = parsedEndDate.Date;
                     }
                     else
                     {
-                        Debug.WriteLine("The end date does not match the allowed formats");
+                        Debug.WriteLine($"The end date '{bEndDate}' does not match the allowed formats.");
                     }
+
 
                     //DateTime startDate = DateTime.ParseExact(bData[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                     //DateTime endDate = DateTime.ParseExact(bData[3], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
