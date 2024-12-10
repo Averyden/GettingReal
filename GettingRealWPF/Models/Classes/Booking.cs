@@ -4,7 +4,7 @@ namespace GettingRealWPF.Models.Classes
 {
     public class Booking
     {
-        private static int _id;
+        internal static int _id;
 
         public int Id { get; set; }
         public Item BookingItems { get; set; }
