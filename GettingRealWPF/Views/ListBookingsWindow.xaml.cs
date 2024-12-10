@@ -33,7 +33,7 @@ namespace GettingRealWPF.Views
 
         private void btn_Booking_Click(object sender, RoutedEventArgs e)
         {
-            ViewBookingWindow viewBookingsWindow = new ViewBookingWindow(activeUser);
+            ViewBookingWindow viewBookingsWindow = new ViewBookingWindow(activeUser, vm.Booking);
             this.Visibility = Visibility.Hidden;
             viewBookingsWindow.Show();
         }

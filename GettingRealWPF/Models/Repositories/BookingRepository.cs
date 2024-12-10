@@ -1,4 +1,4 @@
-﻿using GettingRealWPF.Models.Classes;
+using GettingRealWPF.Models.Classes;
 using GettingRealWPF.Models.Enumerations;
 using StringHelperLibrary;
 using System.Diagnostics;
@@ -130,8 +130,9 @@ namespace GettingRealWPF.Models.Repositories
         }
 
 
+        
+        public Booking GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
 
-        public string GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
         {
             string nameToCheck = u.Name; // we will perform the checks through the userName
             string safetyNet = u.PhoneNumber;
@@ -139,20 +140,14 @@ namespace GettingRealWPF.Models.Repositories
 
 
             List<Booking> bookings = GetAll();
-            string foundBooking = "";
             foreach (var b in bookings)
             {
                 if (b.ConnectedUser.Name == nameToCheck && b.ConnectedUser.PhoneNumber == safetyNet) // Check if a specific user belongs to the booking
                 {
-                    foundBooking = $"Booking {b.Id}";
-                    break;
-                }
-                else
-                {
-                    foundBooking = "";
+                    return b;
                 }
             }
-            return foundBooking;
+            return null; // if not found, return null
         }
 
         // we should also maybeeee update DCD with this. idk just trying to look more pro here 😎

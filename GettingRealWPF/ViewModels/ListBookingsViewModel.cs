@@ -7,7 +7,7 @@ namespace GettingRealWPF.ViewModels
     {
         private BookingRepository bookingRepo = new BookingRepository();
         
-        public string Booking { get; set; } 
+        public Booking Booking { get; set; } 
         public bool HasBooking { get; set; }
         public bool IsBookingEmpty { get; set; }
 
@@ -20,7 +20,7 @@ namespace GettingRealWPF.ViewModels
 
         private bool UpdateHasBooking()
         {
-            if (string.IsNullOrWhiteSpace(Booking))
+            if (string.IsNullOrWhiteSpace(Booking.ToString()))
             {
                 return false;
             }

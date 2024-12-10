@@ -10,14 +10,18 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class ViewBookingWindow : Window
     {
-        ViewBookingViewModel vm = new ViewBookingViewModel();
+        ViewBookingViewModel vm;
+
         private User activeUser;
-        public ViewBookingWindow(User activeUser)
+        private Booking booking;
+        public ViewBookingWindow(User activeUser, Booking booking)
         {
             InitializeComponent();
+            vm = new ViewBookingViewModel(booking);
             DataContext = vm;
 
             this.activeUser = activeUser;
+            this.booking = booking;
         }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
