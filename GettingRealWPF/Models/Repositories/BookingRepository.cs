@@ -135,26 +135,26 @@ namespace GettingRealWPF.Models.Repositories
 		}
 
 
-		public Booking GetBookingsForUser(User u) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
+		public Booking GetBookingsForUser(User user) // Yes i know it is in plural, but in this stage and probably forever, we will limit the amount of bookings a user has to just one.
 
 		{
-			string nameToCheck = u.Name; // we will perform the checks through the userName
-			string safetyNet = u.PhoneNumber;
+			string nameToCheck = user.Name; // we will perform the checks through the userName
+			string safetyNet = user.PhoneNumber;
 
 
 
 			List<Booking> bookings = GetAll();
-			foreach (var b in bookings)
+			foreach (var booking in bookings)
 			{
-				if (b.ConnectedUser.Name == nameToCheck && b.ConnectedUser.PhoneNumber == safetyNet) // Check if a specific user belongs to the booking
+				if (booking.ConnectedUser.Name == nameToCheck && booking.ConnectedUser.PhoneNumber == safetyNet) // Check if a specific user belongs to the booking
 				{
-					return b;
+					return booking;
 				}
 			}
 			return null; // if not found, return null
 		}
 
-		public void DeleteBooking(Booking bookingToDelete)
+		public void Delete(Booking bookingToDelete)
 		{
 			bookings = GetAll(); 
 			bookings.RemoveAll(b => b.Id == bookingToDelete.Id); 
@@ -163,7 +163,7 @@ namespace GettingRealWPF.Models.Repositories
 
 
 		// Helper methods so that we can reconstruct objects for example reconstructing the item class for the connected item to a certain booking.
-		private Item parseItem(string data)
+		private Item ParseItem(string data)
 		{
 			try
 			{
@@ -190,7 +190,7 @@ namespace GettingRealWPF.Models.Repositories
 		}
 
 
-		private User parseUser(string data)
+		private User ParseUser(string data)
 		{
 			string[] userParts = data.Split("|");
 			return new User(userParts[0], userParts[1], bool.Parse(userParts[2]));

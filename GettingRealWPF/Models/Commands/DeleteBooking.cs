@@ -28,7 +28,7 @@ namespace GettingRealWPF.Models.Commands
             if (parameter is Booking book)
             {
                 BookingRepository br = new BookingRepository();
-                br.DeleteBooking(book);
+                br.Delete(book);
 
                 var activeUser = book.ConnectedUser;
                 if (activeUser != null)

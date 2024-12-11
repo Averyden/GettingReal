@@ -7,17 +7,15 @@ namespace GettingRealWPF.ViewModels
 {
     public class AccessViewModel : INotifyPropertyChanged
     {
-        BookingRepository br = new BookingRepository();
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		BookingRepository br = new BookingRepository();
         ItemRepository ir = new ItemRepository();
-        public Choice Choice { get; set; }
 
-        private string _name;
-        private string _phone;
-        private bool _isContinueButtonEnabled;
+		public Choice Choice { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public string Name
+		private string _name;
+		public string Name
         {
             get { return _name; }
             set
@@ -31,7 +29,8 @@ namespace GettingRealWPF.ViewModels
             }
         }
 
-        public string Phone
+		private string _phone;
+		public string Phone
         {
             get { return _phone; }
             set
@@ -45,12 +44,8 @@ namespace GettingRealWPF.ViewModels
             }
         }
 
-        private void UpdateButtonState()
-        {
-            IsContinueButtonEnabled = !string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(Phone);
-        }
-
-        public bool IsContinueButtonEnabled
+		private bool _isContinueButtonEnabled;
+		public bool IsContinueButtonEnabled
         {
             get { return _isContinueButtonEnabled; }
             private set
@@ -62,6 +57,12 @@ namespace GettingRealWPF.ViewModels
                 }
             }
         }
+
+        private void UpdateButtonState()
+        {
+            IsContinueButtonEnabled = !string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(Phone);
+        }
+
 
         public User FetchCredentials(string name, string phoneNumber, Choice choice)
         {
