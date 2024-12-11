@@ -17,6 +17,25 @@ namespace GettingRealWPF.Models.Repositories
 
         public BookingRepository()
         {
+            // check the stupid dum fuck file and make it if no exist.
+            if (File.Exists(filePath))
+            {
+                Debug.WriteLine("ok we good YIPPEE");
+            }
+            else
+            {
+                try
+                {
+                    using (FileStream fs = File.Create(filePath))
+                    {
+                        Debug.WriteLine("File created successfully!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"An error occurred while creating the file: {ex.Message}");
+                }
+            }
             bookings = GetAll();
 
             if (bookings.Any())
