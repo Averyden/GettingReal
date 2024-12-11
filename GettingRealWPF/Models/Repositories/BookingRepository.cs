@@ -15,21 +15,40 @@ namespace GettingRealWPF.Models.Repositories
 
 		private readonly string filePath = "bookings.txt"; // i have no fucking clue if we should update our DCD to include this, but it is ABSOLUTELY neccesary or else we cant save!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-		public BookingRepository()
-		{
-			bookings = GetAll();
+	  public BookingRepository()
+        {
+          // check the stupid dum fuck file and make it if no exist.
+          if (File.Exists(filePath))
+          {
+              Debug.WriteLine("ok we good YIPPEE");
+          }
+          else
+          {
+              try
+              {
+                  using (FileStream fs = File.Create(filePath))
+                  {
+                      Debug.WriteLine("File created successfully!");
+                  }
+              }
+              catch (Exception ex)
+              {
+                  Debug.WriteLine($"An error occurred while creating the file: {ex.Message}");
+              }
+          }
+          bookings = GetAll();
 
-			if (bookings.Any())
-			{
-				Booking._id = bookings.Max(b => b.Id) + 1;
-			}
-			else
-			{
-				Booking._id = 0;
-			}
+          if (bookings.Any())
+          {
+              Booking._id = bookings.Max(b => b.Id) + 1;
+          }
+          else
+          {
+              Booking._id = 0;
+          }
 
-			Debug.WriteLine($"Booking ID counter initialized to {Booking._id}");
-		}
+          Debug.WriteLine($"Booking ID counter initialized to {Booking._id}");
+      }
 
 		public void Add(Booking booking)
 		{
