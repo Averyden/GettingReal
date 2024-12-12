@@ -1,0 +1,92 @@
+<Window x:Class="GettingRealWPF.Views.EditBookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GettingRealWPF.Views"
+        mc:Ignorable="d"
+        Title="VHOBook" Height="1080" Width="1920" WindowState="Maximized"
+        Background="#5d6532">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Button x:Name="btn_Back" Content="Tilbage" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFB2B2B2" Height="80" Width="250" FontSize="35" FontWeight="DemiBold"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Vertical" Margin="50">
+                    <Label Content="Shelter" HorizontalAlignment="Center" FontSize="100" FontWeight="DemiBold"/>
+                    <CheckBox x:Name="shelterCheckBox" Content="Shelter 1" Height="75" Width="250" FontSize="20">
+
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="3" ScaleY="3" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <StackPanel Orientation="Vertical" Margin="50">
+                    <Label Content="Canoe" HorizontalAlignment="Center" FontSize="100" FontWeight="DemiBold"/>
+                    <ComboBox Height="50"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Calendar
+                    Margin="0,0,0,0" SelectionMode="SingleRange"
+                    IsTodayHighlighted="True" 
+                    DisplayDate="11/1/2024"
+                    DisplayDateEnd="11/30/2024"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib" Width="200" Height="170" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+
+
+                    <Calendar.BlackoutDates>
+                        <CalendarDateRange Start="11/2/2024" End="11/4/2024"/>
+                        <CalendarDateRange Start="11/9/2024" End="11/10/2024"/>
+                        <CalendarDateRange Start="11/16/2024" End="11/16/2024"/>
+                        <CalendarDateRange Start="11/23/2024" End="11/25/2024"/>
+                        <CalendarDateRange Start="11/30/2024" End="11/30/2024"/>
+                    </Calendar.BlackoutDates>
+
+                    <Calendar.SelectedDates>
+                        <sys:DateTime>11/28/2024</sys:DateTime>
+                        <sys:DateTime>11/29/2024</sys:DateTime>
+
+                    </Calendar.SelectedDates>
+
+                    <Calendar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="4" ScaleY="4"/>
+                            <TranslateTransform X="0" Y="0"/>
+                        </TransformGroup>
+                    </Calendar.RenderTransform>
+
+                </Calendar>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Button x:Name="btnCreateBooking" Content="Accepter" HorizontalAlignment="Right" Height="80" Width="250" Background="#FFB2B2B2"  FontSize="35" FontWeight="DemiBold" Margin="0,0,20,20"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

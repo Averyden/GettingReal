@@ -8,4 +8,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="StringHelper">
+      <HintPath>..\..\..\..\Downloads\StringHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
