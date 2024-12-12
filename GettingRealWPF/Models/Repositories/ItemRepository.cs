@@ -15,16 +15,16 @@ namespace GettingRealWPF.Models.Repositories
 
         };
         private string filePath = "items.txt";
+        public void Add(Item item)
+        {
+            items.Add(item);
+        }
 
         public List<Item> GetAll()
         {
             return items;
         }
 
-        public void AddItem(Item item)
-        {
-            items.Add(item);
-        }
 
         public void LoadAll()
         {

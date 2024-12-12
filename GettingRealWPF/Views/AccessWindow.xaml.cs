@@ -12,8 +12,6 @@ namespace GettingRealWPF.Views
     /// </summary>
     public partial class AccessWindow : Window
     {
-
-        BookingRepository bookingRepository = new BookingRepository();
         AccessViewModel vm = new AccessViewModel();
         private Choice choice;
 
