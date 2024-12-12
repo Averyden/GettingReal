@@ -107,8 +107,8 @@ namespace GettingRealWPF.Models.Repositories
 					string[] bData = line.Split(";");
 					int bookingId = int.Parse(bData[0]);
 
-					Item item = parseItem(bData[1]);
-					User conUser = parseUser(bData[4]);
+					Item item = ParseItem(bData[1]);
+					User conUser = ParseUser(bData[4]);
 
 					DateTime startDate;
 					DateTime endDate;

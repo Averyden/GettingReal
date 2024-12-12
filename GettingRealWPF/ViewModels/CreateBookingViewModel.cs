@@ -24,7 +24,7 @@ namespace GettingRealWPF.ViewModels
             Booking booking = new Booking(
                 bookingItems: new Item(0, "Store Shelter", ItemType.Shelter, Status.Available),
                 startDate: DateTime.Today,
-                endDate: DateTime.Today,
+                endDate: new DateTime(2024,12,31),
                 connectedUser: activeUser
             );
 

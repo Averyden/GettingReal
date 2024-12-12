@@ -25,12 +25,18 @@
 
             <Label Content="Se/Rediger bookings" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="80" FontWeight="Bold"/>
 
-            <StackPanel>
-                <Button x:Name="btn_Oplysninger" Content="Praktiske Oplysninger" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" Height="50" Width="400" FontSize="35" FontWeight="DemiBold"/>
-                <Button x:Name="btn_Vejvisning" Content="Vejvisnings Guide" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" Height="50" Width="400" FontSize="35" FontWeight="DemiBold"/>
-            </StackPanel>
-        
-        </Grid>
+			<StackPanel>
+				<Button x:Name="btn_Oplysninger" MaxWidth="300" Width="300" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" FontSize="35" FontWeight="DemiBold">
+					<TextBlock Text="Praktiske Oplysninger" TextWrapping="Wrap" Padding="5"/>
+				</Button>
+
+				<Button x:Name="btn_Vejvisning" MaxWidth="300" Width="300" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FFB2B2B2" FontSize="35" FontWeight="DemiBold">
+					<TextBlock Text="Vejvisnings Guide" TextWrapping="Wrap" Padding="5"/>
+				</Button>
+
+			</StackPanel>
+
+		</Grid>
 
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding HasBooking, Converter={StaticResource BoolToInvisibility}}">
