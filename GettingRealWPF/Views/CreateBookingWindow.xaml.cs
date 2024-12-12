@@ -32,5 +32,10 @@ namespace GettingRealWPF.Views
             this.Visibility = Visibility.Hidden;
             accessWindow.Show();
         }
+
+        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
